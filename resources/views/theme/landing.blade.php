@@ -999,7 +999,7 @@
                                 @empty
                                     <p class="text-muted">در این دسته هنوز مقاله‌ای وجود ندارد.</p>
                                 @endforelse
-                            </a>
+                            </div>
                         </div>
                     @empty
                         <p class="text-muted text-center">پزشکی ثبت نشده است.</p>
