@@ -844,7 +844,9 @@
                                     </div>
                                     <span>{{ $age }}</span>
                                 </div>
-                            @endforeach
+                            @empty
+                        <p class="text-muted text-center">پزشکی ثبت نشده است.</p>
+                    @endforelse
                         </div>
                     </div>
                 </div>
@@ -999,7 +1001,9 @@
                                 @endforelse
                             </div>
                         </div>
-                    @endforeach
+                    @empty
+                        <p class="text-muted text-center">پزشکی ثبت نشده است.</p>
+                    @endforelse
                 </div>
             </div>
         </section>
