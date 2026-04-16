@@ -13,51 +13,7 @@
     <title>Document</title>
 </head>
 <body>
-    <header class="header">
-        <div class="logo"><img src="assets/images/کودکتو.png" alt=""></div>
-
-        <div class="burger-menu">
-            <img src="assets/images/Hamburger Menu.png" alt="">
-        </div>
-        <div class="nav">
-            <ul class="nav-items">
-                <ol>
-                    <a href="">
-                        <div class="item-logo"><img src="assets/images/home 04.png" alt=""></div>
-                        <h3 class="active">خانه</h3>
-                    </a>
-                </ol>
-                <ol>
-                    <a href="">
-                        <div class="item-logo"><img src="assets/images/reward.png" alt=""></div>
-                        <h3>پیشنهاد ویژه</h3>
-                    </a>
-                </ol>
-                <ol>
-                    <a href="">
-                        <div class="item-logo"><img src="assets/images/store.png" alt=""></div>
-                        <h3>درباره‌ما</h3>
-                    </a>
-                </ol>
-                <ol>
-                    <a href="">
-                        <div class="item-logo"><img src="assets/images/receipt.png" alt=""></div>
-                        <h3>وبلاگ</h3>
-                    </a>
-                </ol>
-                <ol>
-                    <a href="">
-                        <div class="item-logo"><img src="assets/images/shopping basket 02.png" alt=""></div>
-                        <h3>محصولات</h3>
-                    </a>
-                </ol>
-            </ul>
-        </div>
-        <div class="search">
-            <input type="search" id="search" placeholder="محصول مورد نطر را جستجو کنید">
-            <div class="search-logo"><img src="assets/images/search 01.svg" alt=""></div>
-        </div>
-    </header>
+    @include('theme.partials.header')
 
     <main>
         <section class="big-banner-container">
@@ -592,92 +548,7 @@
     </main>
 
 
-    <footer>
-        <div class="foot-container">
-            <div class="footer-bio">
-                <img src="assets/images/لوگو.png" alt="">
-                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است...</p>
-            </div>
-            <div class="quik-access">
-                <div class="quik-title">
-                    <h1>دسترسی سریع</h1>
-                </div>
-                <div class="quik-item">
-                    <div class="quik-card">
-                        <div class="dot"></div>
-                        <span>خانه</span>
-                    </div>
-                    <div class="quik-card">
-                        <div class="dot"></div>
-                        <span>مقالات</span>
-                    </div>
-                    <div class="quik-card">
-                        <div class="dot"></div>
-                        <span>دوره ها</span>
-                    </div>
-                    <div class="quik-card">
-                        <div class="dot"></div>
-                        <span>فروشگاه</span>
-                    </div>
-                    <div class="quik-card">
-                        <div class="dot"></div>
-                        <span>درباره ما</span>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div class="contactus">
-                <div class="contactus-title">
-                    <h1>ارتباط با ما</h1>
-                </div>
-                <div class="contactus-item">
-                    <div class="contactus-card">
-                        <div class="dot"></div>
-                        <span>09056116431</span>
-                    </div>
-                    <div class="contactus-card">
-                        <div class="dot"></div>
-                        <span>kodakto@gmail.com</span>
-                    </div>
-                </div>
-                <div class="online-chat">
-                    <h1>چت آنلاین</h1>
-                    <div class="chat-btn">
-                        <img src="assets/images/left 01.png" alt="">
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div class="licence">
-                <div class="contactus-title">
-                    <h1>ارتباط با ما</h1>
-                </div>
-                <div class="licence-img">
-                    <img src="assets/images/تصویر-تاییدیه-زرین-پال-1 1.png" alt="">
-                    <img src="assets/images/تصویر-تاییدیه-زیبال 1.png" alt="">
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-social">
-            <a href="">
-                <img src="assets/images/youtube.svg" alt="">
-            </a>
-            <a href="">
-                <img src="assets/images/telegram.svg" alt="">
-            </a>
-            <a href="">
-                <img src="assets/images/linkedln.svg" alt="">
-            </a>
-            <a href="">
-                <img src="assets/images/instagram.svg" alt="">
-            </a>
-        </div>
-    </footer>
+    @include('theme.partials.footer')
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="assets/js/jquery.min.js"></script>
