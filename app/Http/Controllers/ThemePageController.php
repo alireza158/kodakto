@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -13,14 +14,42 @@ class ThemePageController extends Controller
         return view('theme.landing');
     }
 
-    public function products(): View
+    public function products(Request $request): View
     {
-        return view('theme.products');
+        $category = $request->string('category')->toString();
+
+        $products = Product::query()
+            ->where('is_active', true)
+            ->when($category, fn ($query) => $query->where('category', $category))
+            ->orderByDesc('published_at')
+            ->latest('id')
+            ->paginate(12)
+            ->withQueryString();
+
+        $categories = Product::query()
+            ->where('is_active', true)
+            ->whereNotNull('category')
+            ->select('category')
+            ->distinct()
+            ->orderBy('category')
+            ->pluck('category');
+
+        return view('theme.products', compact('products', 'categories', 'category'));
     }
 
-    public function singleProduct(): View
+    public function singleProduct(string $slug): View
     {
-        return view('theme.single-product');
+        $product = Product::query()->where('slug', $slug)->where('is_active', true)->firstOrFail();
+        $relatedProducts = Product::query()
+            ->where('is_active', true)
+            ->where('id', '!=', $product->id)
+            ->when($product->category, fn ($query) => $query->where('category', $product->category))
+            ->latest('published_at')
+            ->latest('id')
+            ->limit(4)
+            ->get();
+
+        return view('theme.single-product', compact('product', 'relatedProducts'));
     }
 
     public function searchDocter(): View

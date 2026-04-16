@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\ArticleAdminController;
+use App\Http\Controllers\ProductAdminController;
 use App\Http\Controllers\ThemePageController;
 use Illuminate\Support\Facades\Route;
 
@@ -11,7 +12,7 @@ Route::controller(ThemePageController::class)->group(function (): void {
     Route::prefix('theme')->name('theme.')->group(function (): void {
         Route::get('/landing', 'landing')->name('landing');
         Route::get('/products', 'products')->name('products');
-        Route::get('/single-product', 'singleProduct')->name('single-product');
+        Route::get('/single-product/{slug}', 'singleProduct')->name('single-product');
         Route::get('/search-docter', 'searchDocter')->name('search-docter');
         Route::get('/single-docter', 'singleDocter')->name('single-docter');
         Route::get('/blog', 'blog')->name('blog');
@@ -26,4 +27,5 @@ Route::prefix('admin')->name('admin.')->group(function (): void {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
     Route::redirect('/', '/admin/dashboard');
     Route::resource('articles', ArticleAdminController::class)->except(['show']);
+    Route::resource('products', ProductAdminController::class)->except(['show']);
 });
