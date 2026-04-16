@@ -1,62 +1,55 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>پنل ادمین - مقالات</title>
-</head>
-<body style="font-family:sans-serif;background:#f7f7f9;padding:20px;">
-    <h1>پنل مدیریت مقالات</h1>
+@extends('admin.layouts.app', ['title' => 'مدیریت مقالات'])
 
-    @if (session('status'))
-        <p style="background:#d6ffe2;color:#074f1f;padding:10px;border-radius:6px;">{{ session('status') }}</p>
-    @endif
+@section('content')
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="h3 mb-0">مدیریت مقالات</h1>
+        <a href="{{ route('admin.articles.create') }}" class="btn btn-primary">+ افزودن مقاله</a>
+    </div>
 
-    @if ($errors->any())
-        <ul style="background:#ffe4e4;color:#8a1111;padding:12px;border-radius:6px;">
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    @endif
+    <div class="card border-0 shadow-sm">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                <tr>
+                    <th>تصویر</th>
+                    <th>عنوان</th>
+                    <th>موضوع</th>
+                    <th>تاریخ انتشار</th>
+                    <th>عملیات</th>
+                </tr>
+                </thead>
+                <tbody>
+                @forelse($articles as $article)
+                    <tr>
+                        <td>
+                            <img src="{{ $article->image_path ? asset('storage/'.$article->image_path) : asset('theme/assets/images/blog-card.png') }}" alt="{{ $article->title }}" class="rounded" width="72" height="48" style="object-fit: cover;">
+                        </td>
+                        <td>{{ $article->title }}</td>
+                        <td>{{ $article->subject }}</td>
+                        <td>{{ optional($article->published_at)->format('Y-m-d H:i') ?? '-' }}</td>
+                        <td>
+                            <div class="d-flex gap-2">
+                                <a href="{{ route('theme.single-blog', $article->slug) }}" target="_blank" class="btn btn-sm btn-outline-secondary">نمایش</a>
+                                <a href="{{ route('admin.articles.edit', $article) }}" class="btn btn-sm btn-outline-primary">ویرایش</a>
+                                <form action="{{ route('admin.articles.destroy', $article) }}" method="POST" onsubmit="return confirm('مطمئن هستید؟')">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-sm btn-outline-danger">حذف</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="5" class="text-center py-4">هنوز مقاله‌ای ثبت نشده است.</td>
+                    </tr>
+                @endforelse
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-    <p>
-        <a href="{{ route('admin.articles.create') }}" style="background:#111827;color:#fff;padding:8px 14px;border-radius:6px;text-decoration:none;">+ افزودن مقاله</a>
-    </p>
-
-    <table style="width:100%;border-collapse:collapse;background:#fff;">
-        <thead>
-        <tr>
-            <th style="border:1px solid #ddd;padding:8px;">عنوان</th>
-            <th style="border:1px solid #ddd;padding:8px;">موضوع</th>
-            <th style="border:1px solid #ddd;padding:8px;">تاریخ انتشار</th>
-            <th style="border:1px solid #ddd;padding:8px;">عملیات</th>
-        </tr>
-        </thead>
-        <tbody>
-        @forelse ($articles as $article)
-            <tr>
-                <td style="border:1px solid #ddd;padding:8px;">{{ $article->title }}</td>
-                <td style="border:1px solid #ddd;padding:8px;">{{ $article->subject }}</td>
-                <td style="border:1px solid #ddd;padding:8px;">{{ optional($article->published_at)->format('Y-m-d H:i') ?? '-' }}</td>
-                <td style="border:1px solid #ddd;padding:8px;display:flex;gap:8px;">
-                    <a href="{{ route('theme.single-blog', $article->slug) }}" target="_blank">نمایش</a>
-                    <a href="{{ route('admin.articles.edit', $article) }}">ویرایش</a>
-                    <form action="{{ route('admin.articles.destroy', $article) }}" method="POST" onsubmit="return confirm('مطمئن هستید؟')">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit">حذف</button>
-                    </form>
-                </td>
-            </tr>
-        @empty
-            <tr>
-                <td colspan="4" style="border:1px solid #ddd;padding:8px;text-align:center;">هنوز مقاله‌ای ثبت نشده است.</td>
-            </tr>
-        @endforelse
-        </tbody>
-    </table>
-
-    <div style="margin-top:12px;">{{ $articles->links() }}</div>
-</body>
-</html>
+    <div class="mt-3">
+        {{ $articles->links() }}
+    </div>
+@endsection

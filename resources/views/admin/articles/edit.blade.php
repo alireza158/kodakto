@@ -1,26 +1,16 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ویرایش مقاله</title>
-</head>
-<body style="font-family:sans-serif;background:#f7f7f9;padding:20px;">
-    <h1>ویرایش مقاله</h1>
+@extends('admin.layouts.app', ['title' => 'ویرایش مقاله'])
 
-    @if ($errors->any())
-        <ul style="background:#ffe4e4;color:#8a1111;padding:12px;border-radius:6px;">
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    @endif
+@section('content')
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="h3 mb-0">ویرایش مقاله</h1>
+    </div>
 
-    <form action="{{ route('admin.articles.update', $article) }}" method="POST" enctype="multipart/form-data">
-        @method('PUT')
-        @include('admin.articles._form', ['article' => $article])
-    </form>
-
-    <p><a href="{{ route('admin.articles.index') }}">بازگشت به لیست</a></p>
-</body>
-</html>
+    <div class="card border-0 shadow-sm">
+        <div class="card-body">
+            <form action="{{ route('admin.articles.update', $article) }}" method="POST" enctype="multipart/form-data">
+                @method('PUT')
+                @include('admin.articles._form', ['article' => $article])
+            </form>
+        </div>
+    </div>
+@endsection

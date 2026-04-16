@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\ArticleAdminController;
 use App\Http\Controllers\ThemePageController;
 use Illuminate\Support\Facades\Route;
@@ -22,5 +23,7 @@ Route::controller(ThemePageController::class)->group(function (): void {
 });
 
 Route::prefix('admin')->name('admin.')->group(function (): void {
+    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+    Route::redirect('/', '/admin/dashboard');
     Route::resource('articles', ArticleAdminController::class)->except(['show']);
 });
