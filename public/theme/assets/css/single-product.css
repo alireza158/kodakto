@@ -1,0 +1,23 @@
+.title{
+    width: 166px;
+    height: 26px;
+    margin: auto;
+    margin-top: 40px;
+    font-size: 14px;
+    color: #C2C2C2;
+}
+
+.single-product{
+    width: 1280px;
+    height: 535px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+
+.product-images{
+    width: 87px;
+    height: 100%;
+    
+}

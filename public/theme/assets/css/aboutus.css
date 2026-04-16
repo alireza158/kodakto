@@ -1,0 +1,190 @@
+.title{
+    font-size: 14px;
+    color: #C2C2C2;
+    margin-top: 40px;
+    margin-right: 50%;
+    margin-bottom: 64px;
+}
+
+.aboutus{
+    position: relative;
+    width: 1062px;
+    height: 1156px;
+    margin: auto;
+}
+
+.aboutus-container{
+    max-width: 1062px;
+    height: 480px;
+    margin: auto;
+    margin-bottom: 275px;
+    background-image: url(../images/درباره\ ما.png);
+    display: flex;
+    justify-content: space-between;
+}
+
+.aboutus-text{
+    width: 595px;
+    height: 359px;
+    margin-top: 88px;
+}
+
+.aboutus-title{
+    width: 100%;
+    height: 51px;
+    font-size: 32px;
+    color: #39342F;
+    display: flex;
+    align-items: end;
+    gap: 16px;
+    margin-bottom: 11px;
+}
+
+.aboutus-title img{
+    width: 170px;
+    height: 51px;
+}
+
+.aboutus-text p{
+    font-size: 16px;
+    color: #7A7B7F;
+    line-height: 35px;
+}
+
+.aboutus-image{
+    width: 430px;
+    height: 480px;
+    overflow: hidden;
+    position: relative;
+}
+.aboutus-image img{
+    position: absolute;
+    top: 0;
+    right: -60px;
+}
+
+
+
+
+
+
+
+.line{
+    width: 316px;
+    height: 318px;
+    position: absolute;
+    z-index: -1;
+    top: 40%;
+    left: 22%;
+}
+
+
+
+
+
+
+
+
+
+.aboutus-content{
+    max-width: 1052px;
+    height: 401px;
+    margin: auto;
+    background-image: url(../images/ویژگی\ ها.png);
+    padding-top: 37px;
+}
+
+.content-text{
+    width: 185px;
+    height: 42px;
+    margin: auto;
+    margin-bottom: 50px;
+}
+
+.content-text h1{
+    font-size: 32px;
+    color: #39342F;
+}
+
+.content-card{
+    width: 100%;
+    height: 272px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.content-item{
+    width: 245px;
+    height: 272px;
+    border-radius: 120px 120px 42px 42px;
+    background-color: #F4E1FF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 30px;
+}
+
+.content-item img{
+    margin-bottom: 15px;
+}
+.content-item h1{
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: #56514C;
+}
+.content-item p{
+    font-size: 12px;
+    color: #7A7B7F;
+    line-height: 20px;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+    .line{
+        display: none;
+    }
+
+    .aboutus{
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .aboutus-image{
+        width: 335px;
+        height: 384.69px;
+    }
+
+    .aboutus-container{
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+    }
+
+    .aboutus-text{
+        width: 100%;
+        height: auto;
+    }
+
+    .aboutus-content{
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        margin: auto;
+    }
+
+    .content-text{
+        width: 100%;
+        height: auto;
+        font-size: 18px;
+    }
+
+    .content-card{
+        width: 100%;
+        height: auto;
+        flex-wrap: wrap;
+    }
+}

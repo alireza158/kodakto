@@ -1,0 +1,254 @@
+.single-docter-container{
+    max-width: 1280px;
+    margin: auto;
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.aside{
+    width: 519px;
+    height: 407px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.content{
+    width: 519px;
+    height: 303px;
+    padding: 30px;
+}
+
+.docter-information{
+    width: 459px;
+    height: 82px;
+    display: flex;
+    gap: 12px;
+}
+
+.docter-information img{
+    border-radius: 19px;
+}
+
+.doc-text{
+    width: 365px;
+    height: 68px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.doc-name{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.doc-name h1{
+    font-size: 16;
+    color: #423C36;
+}
+.doc-name p{
+    font-size: 12;
+    color: #615A52;
+}
+.doc-name span{
+    font-size: 12;
+    color: #AC3DEB;
+}
+
+.doc-ratting{
+    width: 38px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.doc-ratting span{
+    font-size: 12px;
+    color: #615A52;
+}
+
+.address{
+    width: 442px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: #656367;
+    margin-top: 26px;
+    margin-bottom: 52px;
+}
+
+.docter-services{
+    width: 100%;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 16px;
+    background-color: #F9EFFF;
+}
+
+.service-one{
+    width: 103px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #494949;
+}
+.service-two{
+    width: 123px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #494949;
+}
+.service-three{
+    width: 102px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #494949;
+}
+
+.submit{
+    width: 100%;
+    height: 80;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 19px;
+    padding-right: 30px;
+}
+
+.submit h1{
+    font-size: 16px;
+    color: #6D6D6D;
+}
+
+.sub-btn{
+    width: 135px;
+    height: 42px;
+    background-color: #AC3DEB;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #FFF;
+}
+
+
+.comments{
+    width: 737px;
+    height: 771px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+
+.comment-text{
+    width: 100%;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.comment-text h1{
+    font-size: 19px;
+    color: #423C36;
+}
+
+.people-comment{
+    width: 657px;
+    height: 142px;
+    background-color: #FFF;
+    border: 1px solid #D6D6D6;
+    border-radius: 24px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.people-information{
+    width: 100%;
+    height: 44px;
+    display: flex;
+    gap: 12px;
+}
+
+.user-img{
+    width: 44px;
+    height: 44px;
+    background-color: #F4E1FF;
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.people-name-conatiner{
+    width: 553px;
+    height: 34px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.people-name{
+    width: 60px;
+    height: 34px;
+}
+
+.people-name h1{
+    font-size: 14px;
+    color: #423C36;
+}
+.people-name p{
+    font-size: 10px;
+    color: #615A52;
+}
+
+.rating{
+    width: 96px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.people-text{
+    width: 100%;
+    height: 15px;
+    font-size: 12px;
+    color: #615A52;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+    .aside{
+        width: 100%;
+        display: none;
+    } 
+
+    .single-docter-container{
+        flex-direction: column;
+        width: 100%;
+    }
+}
