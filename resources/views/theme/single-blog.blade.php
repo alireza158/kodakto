@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="{{ asset('theme') }}/">
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="assets/css/all.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/single-blog.css">
+    <title>Document</title>
+</head>
+<body>
+    <header class="header">
+        <div class="logo"><img src="assets/images/کودکتو.png" alt=""></div>
+        <div class="nav">
+            <ul class="nav-items">
+                <ol>
+                    <a href="">
+                        <div class="item-logo"><img src="assets/images/home 04.png" alt=""></div>
+                        <h3 class="active">خانه</h3>
+                    </a>
+                </ol>
+                <ol>
+                    <a href="">
+                        <div class="item-logo"><img src="assets/images/reward.png" alt=""></div>
+                        <h3>پیشنهاد ویژه</h3>
+                    </a>
+                </ol>
+                <ol>
+                    <a href="">
+                        <div class="item-logo"><img src="assets/images/store.png" alt=""></div>
+                        <h3>درباره‌ما</h3>
+                    </a>
+                </ol>
+                <ol>
+                    <a href="">
+                        <div class="item-logo"><img src="assets/images/receipt.png" alt=""></div>
+                        <h3>وبلاگ</h3>
+                    </a>
+                </ol>
+                <ol>
+                    <a href="">
+                        <div class="item-logo"><img src="assets/images/shopping basket 02.png" alt=""></div>
+                        <h3>محصولات</h3>
+                    </a>
+                </ol>
+            </ul>
+        </div>
+        <div class="search">
+            <input type="search" id="search" placeholder="محصول مورد نطر را جستجو کنید">
+            <div class="search-logo"><img src="assets/images/search 01.svg" alt=""></div>
+        </div>
+    </header>
+
+    <main>
+        <h1 class="title">خانه | مقالات | <span style="color: #858586;">دیر یادگرفتن مطالب توسط کودکان</span></h1>
+
+        <section class="single-blog-container">
+            <div class="blog-information">
+                <img src="assets/images/Frame 1116606961.png" alt="">
+                <div class="title-one">
+                    <h1>دیر یاد گرفتن مطالب توسط کودکان</h1>
+                    <div class="time">
+                        <div class="date">
+                            <img src="assets/images/Calendar Minimalistic.svg" alt="">
+                            <span>5 مرداد 1403</span>
+                        </div>
+                        <div class="clock">
+                            <img src="assets/images/Calendar Minimalistic.svg" alt="">
+                            <span>8 دقیقه</span>
+                        </div>
+                    </div>
+                </div>
+                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
+
+                <h1 class="title-two">5 دلیل عدم یادگیری کودک شما:</h1>
+
+                <div class="paragraph">
+                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
+                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
+                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت.</p>
+                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
+                </div>
+            </div>
+
+            <aside class="aside">
+                <div class="aside-title">
+                    <img src="assets/images/book.png" alt="">
+                    <h1>جدیدترین مقالات</h1>
+                </div>
+
+                <div class="aside-card">
+                    <div class="card-image">
+                        <img src="assets/images/blog-card.png" alt="">
+                    </div>
+                    <div class="card-text">
+                        <h1>دیر یادگرفتن مطالب توسط کودکان</h1>
+                        <p>لورم اپیسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است...</p>
+                    </div>
+                </div>
+                <div class="aside-card">
+                    <div class="card-image">
+                        <img src="assets/images/blog-card.png" alt="">
+                    </div>
+                    <div class="card-text">
+                        <h1>دیر یادگرفتن مطالب توسط کودکان</h1>
+                        <p>لورم اپیسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است...</p>
+                    </div>
+                </div>
+                <div class="aside-card">
+                    <div class="card-image">
+                        <img src="assets/images/blog-card.png" alt="">
+                    </div>
+                    <div class="card-text">
+                        <h1>دیر یادگرفتن مطالب توسط کودکان</h1>
+                        <p>لورم اپیسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است...</p>
+                    </div>
+                </div>
+                <div class="aside-card">
+                    <div class="card-image">
+                        <img src="assets/images/blog-card.png" alt="">
+                    </div>
+                    <div class="card-text">
+                        <h1>دیر یادگرفتن مطالب توسط کودکان</h1>
+                        <p>لورم اپیسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است...</p>
+                    </div>
+                </div>
+                <div class="aside-card">
+                    <div class="card-image">
+                        <img src="assets/images/blog-card.png" alt="">
+                    </div>
+                    <div class="card-text">
+                        <h1>دیر یادگرفتن مطالب توسط کودکان</h1>
+                        <p>لورم اپیسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است...</p>
+                    </div>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

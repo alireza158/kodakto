@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="{{ asset('theme') }}/">
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="assets/css/all.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/contactus.css">
+    <title>Document</title>
+</head>
+<body>
+    <header class="header">
+        <div class="logo"><img src="assets/images/کودکتو.png" alt=""></div>
+        <div class="nav">
+            <ul class="nav-items">
+                <ol>
+                    <a href="">
+                        <div class="item-logo"><img src="assets/images/home 04.png" alt=""></div>
+                        <h3 class="active">خانه</h3>
+                    </a>
+                </ol>
+                <ol>
+                    <a href="">
+                        <div class="item-logo"><img src="assets/images/reward.png" alt=""></div>
+                        <h3>پیشنهاد ویژه</h3>
+                    </a>
+                </ol>
+                <ol>
+                    <a href="">
+                        <div class="item-logo"><img src="assets/images/store.png" alt=""></div>
+                        <h3>درباره‌ما</h3>
+                    </a>
+                </ol>
+                <ol>
+                    <a href="">
+                        <div class="item-logo"><img src="assets/images/receipt.png" alt=""></div>
+                        <h3>وبلاگ</h3>
+                    </a>
+                </ol>
+                <ol>
+                    <a href="">
+                        <div class="item-logo"><img src="assets/images/shopping basket 02.png" alt=""></div>
+                        <h3>محصولات</h3>
+                    </a>
+                </ol>
+            </ul>
+        </div>
+        <div class="search">
+            <input type="search" id="search" placeholder="محصول مورد نطر را جستجو کنید">
+            <div class="search-logo"><img src="assets/images/search 01.svg" alt=""></div>
+        </div>
+    </header>
+
+    <main>
+        <h1 class="title">خانه | <span style="color: #858586;">تماس با ما</span></h1>
+
+        <section class="contactus-container">
+            <div class="contactus-content">
+                <div class="address-card">
+                    <div class="address-card-img">
+                        <img src="assets/images/Icon.png" alt="">
+                    </div>
+                    <div class="address-card-text">
+                        <h1>شماره تلفن:</h1>
+                        <p>09056784354</p>
+                    </div>
+                </div>
+                <div class="address-card">
+                    <div class="address-card-img">
+                        <img src="assets/images/email.png" alt="">
+                    </div>
+                    <div class="address-card-text">
+                        <h1>ایمیل:</h1>
+                        <p>maahdi155@gmail.com</p>
+                    </div>
+                </div>
+                <div class="address-card">
+                    <div class="address-card-img">
+                        <img src="assets/images/location.png" alt="">
+                    </div>
+                    <div class="address-card-text">
+                        <h1>آدرس:</h1>
+                        <p>تهران، خیابان ولیعصر</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comment">
+                <div class="comment-title">
+                    <h1>ارتباط با <span style="color: #AC3DEB;">ما</span></h1>
+                    <p>برای ارتباط با ما از طریق وبسایت کادر <span style="color: #AC3DEB;">زیر</span> را پر کنید</p>
+                </div>
+                <div class="inputs">
+                    <input type="text" id="text" placeholder="نام و نام خانوادگی">
+                    <input type="email" id="email" placeholder="ایمیل">
+                </div>
+
+                <div class="message">
+                    <input type="text" id="message" placeholder="پیام خود را وارد کنید">
+                    <input type="submit" id="submit" value="ارسال">
+                </div>
+            </div>
+        </section>
+
+        <section class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48899.6442235745!2d54.45944055738218!3d36.83178959306719!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8349d4bb44853b%3A0xfd797c3f32f58939!2z2q_Ysdqv2KfZhtiMINin2LPYqtin2YYg2q_ZhNiz2KrYp9mG2Iwg2KfbjNix2KfZhg!5e1!3m2!1sfa!2s!4v1730392409875!5m2!1sfa!2s" style="border:0; width: 100%; height: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </section>
+    </main>
+
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
