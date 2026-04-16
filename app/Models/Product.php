@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Product extends Model
 {
@@ -12,6 +13,7 @@ class Product extends Model
     protected $fillable = [
         'name',
         'slug',
+        'category_id',
         'category',
         'short_description',
         'description',
@@ -32,5 +34,10 @@ class Product extends Model
             'is_active' => 'boolean',
             'published_at' => 'datetime',
         ];
+    }
+
+    public function categoryRelation(): BelongsTo
+    {
+        return $this->belongsTo(ProductCategory::class, 'category_id');
     }
 }

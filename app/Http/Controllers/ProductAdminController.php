@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\ProductCategory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -13,14 +14,16 @@ class ProductAdminController extends Controller
 {
     public function index(): View
     {
-        $products = Product::query()->latest()->paginate(10);
+        $products = Product::query()->with('categoryRelation')->latest()->paginate(10);
 
         return view('admin.products.index', compact('products'));
     }
 
     public function create(): View
     {
-        return view('admin.products.create');
+        $categories = ProductCategory::query()->orderBy('name')->get();
+
+        return view('admin.products.create', compact('categories'));
     }
 
     public function store(Request $request): RedirectResponse
@@ -33,6 +36,8 @@ class ProductAdminController extends Controller
             $validated['image_path'] = $request->file('image')->store('products', 'public');
         }
 
+        $category = ProductCategory::query()->find($validated['category_id']);
+        $validated['category'] = $category?->name;
         $validated['is_active'] = $request->boolean('is_active');
         unset($validated['image']);
 
@@ -43,7 +48,9 @@ class ProductAdminController extends Controller
 
     public function edit(Product $product): View
     {
-        return view('admin.products.edit', compact('product'));
+        $categories = ProductCategory::query()->orderBy('name')->get();
+
+        return view('admin.products.edit', compact('product', 'categories'));
     }
 
     public function update(Request $request, Product $product): RedirectResponse
@@ -61,6 +68,8 @@ class ProductAdminController extends Controller
             $validated['image_path'] = $request->file('image')->store('products', 'public');
         }
 
+        $category = ProductCategory::query()->find($validated['category_id']);
+        $validated['category'] = $category?->name;
         $validated['is_active'] = $request->boolean('is_active');
         unset($validated['image']);
 
@@ -84,7 +93,7 @@ class ProductAdminController extends Controller
     {
         return $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'category' => ['nullable', 'string', 'max:255'],
+            'category_id' => ['required', 'exists:product_categories,id'],
             'short_description' => ['nullable', 'string'],
             'description' => ['nullable', 'string'],
             'price' => ['required', 'numeric', 'min:0'],

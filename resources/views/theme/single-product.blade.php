@@ -30,8 +30,8 @@
             <div class="col-lg-6">
                 <div class="card border-0 shadow-sm h-100">
                     <div class="card-body d-flex flex-column">
-                        @if($product->category)
-                            <span class="badge text-bg-primary align-self-start mb-3">{{ $product->category }}</span>
+                        @if($product->categoryRelation)
+                            <span class="badge text-bg-primary align-self-start mb-3">{{ $product->categoryRelation->name }}</span>
                         @endif
                         <h1 class="h3 mb-3">{{ $product->name }}</h1>
                         <p class="text-secondary">{{ $product->short_description }}</p>

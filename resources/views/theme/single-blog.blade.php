@@ -24,6 +24,9 @@
             <img src="{{ $article->image_path ? asset('storage/'.$article->image_path) : asset('theme/assets/images/Frame 1116606961.png') }}" alt="{{ $article->title }}" class="blog-image">
             <div class="title-one">
                 <h1>{{ $article->title }}</h1>
+                @if($article->category)
+                    <p>دسته: {{ $article->category->name }}</p>
+                @endif
                 <div class="time">
                     <div class="date">
                         <img src="assets/images/Calendar Minimalistic.svg" alt="">

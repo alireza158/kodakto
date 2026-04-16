@@ -13,7 +13,7 @@
                 <tr>
                     <th>تصویر</th>
                     <th>عنوان</th>
-                    <th>موضوع</th>
+                    <th>دسته</th>
                     <th>تاریخ انتشار</th>
                     <th>عملیات</th>
                 </tr>
@@ -21,35 +21,25 @@
                 <tbody>
                 @forelse($articles as $article)
                     <tr>
-                        <td>
-                            <img src="{{ $article->image_path ? asset('storage/'.$article->image_path) : asset('theme/assets/images/blog-card.png') }}" alt="{{ $article->title }}" class="rounded" width="72" height="48" style="object-fit: cover;">
-                        </td>
+                        <td><img src="{{ $article->image_path ? asset('storage/'.$article->image_path) : asset('theme/assets/images/blog-card.png') }}" alt="{{ $article->title }}" class="rounded" width="72" height="48" style="object-fit: cover;"></td>
                         <td>{{ $article->title }}</td>
-                        <td>{{ $article->subject }}</td>
+                        <td>{{ $article->category?->name ?: '-' }}</td>
                         <td>{{ optional($article->published_at)->format('Y-m-d H:i') ?? '-' }}</td>
                         <td>
                             <div class="d-flex gap-2">
                                 <a href="{{ route('theme.single-blog', $article->slug) }}" target="_blank" class="btn btn-sm btn-outline-secondary">نمایش</a>
                                 <a href="{{ route('admin.articles.edit', $article) }}" class="btn btn-sm btn-outline-primary">ویرایش</a>
-                                <form action="{{ route('admin.articles.destroy', $article) }}" method="POST" onsubmit="return confirm('مطمئن هستید؟')">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-outline-danger">حذف</button>
-                                </form>
+                                <form action="{{ route('admin.articles.destroy', $article) }}" method="POST" onsubmit="return confirm('مطمئن هستید؟')">@csrf @method('DELETE')<button type="submit" class="btn btn-sm btn-outline-danger">حذف</button></form>
                             </div>
                         </td>
                     </tr>
                 @empty
-                    <tr>
-                        <td colspan="5" class="text-center py-4">هنوز مقاله‌ای ثبت نشده است.</td>
-                    </tr>
+                    <tr><td colspan="5" class="text-center py-4">هنوز مقاله‌ای ثبت نشده است.</td></tr>
                 @endforelse
                 </tbody>
             </table>
         </div>
     </div>
 
-    <div class="mt-3">
-        {{ $articles->links() }}
-    </div>
+    <div class="mt-3">{{ $articles->links() }}</div>
 @endsection

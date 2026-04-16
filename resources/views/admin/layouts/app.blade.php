@@ -20,12 +20,12 @@
             <h5 class="text-white mb-4">پنل ادمین</h5>
             <ul class="nav flex-column gap-2">
                 <li class="nav-item"><a class="nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}" href="{{ route('admin.dashboard') }}">داشبورد</a></li>
+                <li class="nav-item"><a class="nav-link {{ request()->routeIs('admin.article-categories.*') ? 'active' : '' }}" href="{{ route('admin.article-categories.index') }}">دسته‌بندی مقالات</a></li>
                 <li class="nav-item"><a class="nav-link {{ request()->routeIs('admin.articles.*') ? 'active' : '' }}" href="{{ route('admin.articles.index') }}">مقاله‌ها</a></li>
+                <li class="nav-item"><a class="nav-link {{ request()->routeIs('admin.product-categories.*') ? 'active' : '' }}" href="{{ route('admin.product-categories.index') }}">دسته‌بندی محصولات</a></li>
                 <li class="nav-item"><a class="nav-link {{ request()->routeIs('admin.products.*') ? 'active' : '' }}" href="{{ route('admin.products.index') }}">محصولات</a></li>
                 <li class="nav-item"><a class="nav-link {{ request()->routeIs('admin.articles.create') ? 'active' : '' }}" href="{{ route('admin.articles.create') }}">افزودن مقاله</a></li>
                 <li class="nav-item"><a class="nav-link {{ request()->routeIs('admin.products.create') ? 'active' : '' }}" href="{{ route('admin.products.create') }}">افزودن محصول</a></li>
-                <li class="nav-item mt-3"><a class="nav-link" href="{{ route('theme.products') }}" target="_blank">مشاهده فروشگاه</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('theme.blog') }}" target="_blank">مشاهده بلاگ</a></li>
             </ul>
         </aside>
 

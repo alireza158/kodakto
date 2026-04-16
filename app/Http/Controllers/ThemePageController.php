@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\ArticleCategory;
 use App\Models\Product;
+use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -16,34 +18,29 @@ class ThemePageController extends Controller
 
     public function products(Request $request): View
     {
-        $category = $request->string('category')->toString();
+        $categorySlug = $request->string('category')->toString();
 
         $products = Product::query()
+            ->with('categoryRelation')
             ->where('is_active', true)
-            ->when($category, fn ($query) => $query->where('category', $category))
+            ->when($categorySlug, fn ($query) => $query->whereHas('categoryRelation', fn ($q) => $q->where('slug', $categorySlug)))
             ->orderByDesc('published_at')
             ->latest('id')
             ->paginate(12)
             ->withQueryString();
 
-        $categories = Product::query()
-            ->where('is_active', true)
-            ->whereNotNull('category')
-            ->select('category')
-            ->distinct()
-            ->orderBy('category')
-            ->pluck('category');
+        $categories = ProductCategory::query()->orderBy('name')->get();
 
-        return view('theme.products', compact('products', 'categories', 'category'));
+        return view('theme.products', compact('products', 'categories', 'categorySlug'));
     }
 
     public function singleProduct(string $slug): View
     {
-        $product = Product::query()->where('slug', $slug)->where('is_active', true)->firstOrFail();
+        $product = Product::query()->with('categoryRelation')->where('slug', $slug)->where('is_active', true)->firstOrFail();
         $relatedProducts = Product::query()
             ->where('is_active', true)
             ->where('id', '!=', $product->id)
-            ->when($product->category, fn ($query) => $query->where('category', $product->category))
+            ->when($product->category_id, fn ($query) => $query->where('category_id', $product->category_id))
             ->latest('published_at')
             ->latest('id')
             ->limit(4)
@@ -64,23 +61,24 @@ class ThemePageController extends Controller
 
     public function blog(Request $request): View
     {
-        $subject = $request->string('subject')->toString();
+        $categorySlug = $request->string('category')->toString();
 
         $articles = Article::query()
-            ->when($subject, fn ($query) => $query->where('subject', $subject))
+            ->with('category')
+            ->when($categorySlug, fn ($query) => $query->whereHas('category', fn ($q) => $q->where('slug', $categorySlug)))
             ->orderByDesc('published_at')
             ->latest('id')
             ->paginate(8)
             ->withQueryString();
 
-        $subjects = Article::query()->select('subject')->distinct()->orderBy('subject')->pluck('subject');
+        $categories = ArticleCategory::query()->orderBy('name')->get();
 
-        return view('theme.blog', compact('articles', 'subjects', 'subject'));
+        return view('theme.blog', compact('articles', 'categories', 'categorySlug'));
     }
 
     public function singleBlog(string $slug): View
     {
-        $article = Article::query()->where('slug', $slug)->firstOrFail();
+        $article = Article::query()->with('category')->where('slug', $slug)->firstOrFail();
         $latestArticles = Article::query()->where('id', '!=', $article->id)->latest('published_at')->latest('id')->limit(4)->get();
 
         return view('theme.single-blog', compact('article', 'latestArticles'));

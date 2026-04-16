@@ -6,8 +6,13 @@
         <input type="text" name="name" value="{{ old('name', $product->name ?? '') }}" required class="form-control">
     </div>
     <div class="col-md-6">
-        <label class="form-label">دسته‌بندی</label>
-        <input type="text" name="category" value="{{ old('category', $product->category ?? '') }}" class="form-control">
+        <label class="form-label">دسته‌بندی محصول</label>
+        <select name="category_id" required class="form-select">
+            <option value="">انتخاب دسته</option>
+            @foreach($categories as $category)
+                <option value="{{ $category->id }}" @selected((int) old('category_id', $product->category_id ?? 0) === $category->id)>{{ $category->name }}</option>
+            @endforeach
+        </select>
     </div>
     <div class="col-md-4">
         <label class="form-label">قیمت</label>
@@ -45,9 +50,7 @@
     </div>
 
     @if (!empty($product?->image_path))
-        <div class="col-12">
-            <img src="{{ asset('storage/'.$product->image_path) }}" alt="{{ $product->name }}" class="img-thumbnail" style="max-width: 220px;">
-        </div>
+        <div class="col-12"><img src="{{ asset('storage/'.$product->image_path) }}" alt="{{ $product->name }}" class="img-thumbnail" style="max-width: 220px;"></div>
     @endif
 
     <div class="col-12 d-flex gap-2">

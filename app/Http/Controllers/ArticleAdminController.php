@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\ArticleCategory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -13,21 +14,23 @@ class ArticleAdminController extends Controller
 {
     public function index(): View
     {
-        $articles = Article::query()->latest()->paginate(10);
+        $articles = Article::query()->with('category')->latest()->paginate(10);
 
         return view('admin.articles.index', compact('articles'));
     }
 
     public function create(): View
     {
-        return view('admin.articles.create');
+        $categories = ArticleCategory::query()->orderBy('name')->get();
+
+        return view('admin.articles.create', compact('categories'));
     }
 
     public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
             'title' => ['required', 'string', 'max:255'],
-            'subject' => ['required', 'string', 'max:255'],
+            'category_id' => ['required', 'exists:article_categories,id'],
             'excerpt' => ['nullable', 'string'],
             'content' => ['required', 'string'],
             'image' => ['nullable', 'image', 'max:5120'],
@@ -41,6 +44,9 @@ class ArticleAdminController extends Controller
             $validated['image_path'] = $request->file('image')->store('articles', 'public');
         }
 
+        $category = ArticleCategory::query()->find($validated['category_id']);
+        $validated['subject'] = $category?->name;
+
         unset($validated['image']);
 
         Article::query()->create($validated);
@@ -50,14 +56,16 @@ class ArticleAdminController extends Controller
 
     public function edit(Article $article): View
     {
-        return view('admin.articles.edit', compact('article'));
+        $categories = ArticleCategory::query()->orderBy('name')->get();
+
+        return view('admin.articles.edit', compact('article', 'categories'));
     }
 
     public function update(Request $request, Article $article): RedirectResponse
     {
         $validated = $request->validate([
             'title' => ['required', 'string', 'max:255'],
-            'subject' => ['required', 'string', 'max:255'],
+            'category_id' => ['required', 'exists:article_categories,id'],
             'excerpt' => ['nullable', 'string'],
             'content' => ['required', 'string'],
             'image' => ['nullable', 'image', 'max:5120'],
@@ -76,6 +84,9 @@ class ArticleAdminController extends Controller
 
             $validated['image_path'] = $request->file('image')->store('articles', 'public');
         }
+
+        $category = ArticleCategory::query()->find($validated['category_id']);
+        $validated['subject'] = $category?->name;
 
         unset($validated['image']);
 

@@ -7,8 +7,13 @@
     </div>
 
     <div class="col-md-6">
-        <label class="form-label">موضوع</label>
-        <input type="text" name="subject" value="{{ old('subject', $article->subject ?? '') }}" required class="form-control">
+        <label class="form-label">دسته‌بندی مقاله</label>
+        <select name="category_id" required class="form-select">
+            <option value="">انتخاب دسته</option>
+            @foreach($categories as $category)
+                <option value="{{ $category->id }}" @selected((int) old('category_id', $article->category_id ?? 0) === $category->id)>{{ $category->name }}</option>
+            @endforeach
+        </select>
     </div>
 
     <div class="col-12">

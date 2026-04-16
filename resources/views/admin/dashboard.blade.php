@@ -10,10 +10,12 @@
     </div>
 
     <div class="row g-3 mb-4">
-        <div class="col-md-6 col-xl-3"><div class="card border-0 shadow-sm"><div class="card-body"><p class="text-muted mb-2">کل مقالات</p><h2 class="mb-0">{{ $totalArticles }}</h2></div></div></div>
-        <div class="col-md-6 col-xl-3"><div class="card border-0 shadow-sm"><div class="card-body"><p class="text-muted mb-2">مقالات منتشرشده</p><h2 class="mb-0">{{ $publishedArticles }}</h2></div></div></div>
-        <div class="col-md-6 col-xl-3"><div class="card border-0 shadow-sm"><div class="card-body"><p class="text-muted mb-2">کل محصولات</p><h2 class="mb-0">{{ $totalProducts }}</h2></div></div></div>
-        <div class="col-md-6 col-xl-3"><div class="card border-0 shadow-sm"><div class="card-body"><p class="text-muted mb-2">محصولات فعال</p><h2 class="mb-0">{{ $activeProducts }}</h2></div></div></div>
+        <div class="col-md-6 col-xl-2"><div class="card border-0 shadow-sm"><div class="card-body"><p class="text-muted mb-2">کل مقالات</p><h2 class="mb-0">{{ $totalArticles }}</h2></div></div></div>
+        <div class="col-md-6 col-xl-2"><div class="card border-0 shadow-sm"><div class="card-body"><p class="text-muted mb-2">دسته مقاله</p><h2 class="mb-0">{{ $articleCategoriesCount }}</h2></div></div></div>
+        <div class="col-md-6 col-xl-2"><div class="card border-0 shadow-sm"><div class="card-body"><p class="text-muted mb-2">منتشرشده</p><h2 class="mb-0">{{ $publishedArticles }}</h2></div></div></div>
+        <div class="col-md-6 col-xl-2"><div class="card border-0 shadow-sm"><div class="card-body"><p class="text-muted mb-2">کل محصولات</p><h2 class="mb-0">{{ $totalProducts }}</h2></div></div></div>
+        <div class="col-md-6 col-xl-2"><div class="card border-0 shadow-sm"><div class="card-body"><p class="text-muted mb-2">دسته محصول</p><h2 class="mb-0">{{ $productCategoriesCount }}</h2></div></div></div>
+        <div class="col-md-6 col-xl-2"><div class="card border-0 shadow-sm"><div class="card-body"><p class="text-muted mb-2">محصول فعال</p><h2 class="mb-0">{{ $activeProducts }}</h2></div></div></div>
     </div>
 
     <div class="row g-3">
