@@ -1,545 +1,1179 @@
+@php
+    $ageGroups = [
+        'نوزاد تا 1 سالگی',
+        '1 تا 2 سالگی',
+        '2 تا 3 سالگی',
+        '3 تا 5 سالگی',
+        '6 تا 8 سالگی',
+        '9 تا 11 سالگی',
+        '12 تا 14 سالگی',
+        '15 تا 17 سالگی',
+    ];
+
+    $topics = [
+        [
+            'title' => 'خلاقیت کودکان',
+            'image' => asset('theme/assets/images/section2 image1.png'),
+        ],
+        [
+            'title' => 'خانواده کودکان',
+            'image' => asset('theme/assets/images/section2 image2.png'),
+        ],
+        [
+            'title' => 'اختلالات یادگیری',
+            'image' => asset('theme/assets/images/section2 image3.png'),
+        ],
+        [
+            'title' => 'پزشک کودکان',
+            'image' => asset('theme/assets/images/section2 image4.png'),
+        ],
+    ];
+
+    $doctors = [
+        ['name' => 'محمدحسین شاکری', 'specialty' => 'متخصص کودکان', 'rate' => '4.5'],
+        ['name' => 'زهرا موسوی', 'specialty' => 'روانشناس کودک', 'rate' => '4.8'],
+        ['name' => 'علی رضایی', 'specialty' => 'گفتار درمانگر', 'rate' => '4.6'],
+        ['name' => 'مریم احمدی', 'specialty' => 'متخصص رشد کودک', 'rate' => '4.7'],
+        ['name' => 'سارا کریمی', 'specialty' => 'متخصص کودکان', 'rate' => '4.4'],
+        ['name' => 'نیما توکلی', 'specialty' => 'کاردرمانگر کودک', 'rate' => '4.9'],
+        ['name' => 'فرشته بهرامی', 'specialty' => 'روانشناس کودک', 'rate' => '4.5'],
+        ['name' => 'امیرحسین صادقی', 'specialty' => 'متخصص کودکان', 'rate' => '4.6'],
+    ];
+
+    $blogTabs = [
+        'learning' => 'اختلالات یادگیری',
+        'creativity' => 'خلاقیت',
+        'play' => 'بازی',
+        'craft' => 'کاردستی',
+    ];
+
+    $blogs = [
+        'learning' => [
+            [
+                'title' => 'دیر یادگرفتن مطالب توسط کودکان',
+                'desc' => 'نشانه‌ها، دلایل و راهکارهای کاربردی برای شناسایی و کمک به کودکانی که در یادگیری کندتر عمل می‌کنند.',
+                'image' => asset('theme/assets/images/blog-card.png'),
+            ],
+            [
+                'title' => 'چطور مشکلات یادگیری را زودتر تشخیص دهیم؟',
+                'desc' => 'چند علامت مهم که والدین و مربیان باید در رفتار و روند یادگیری کودک به آن دقت کنند.',
+                'image' => asset('theme/assets/images/blog-card.png'),
+            ],
+            [
+                'title' => 'نقش والدین در درمان اختلالات یادگیری',
+                'desc' => 'همراهی درست خانواده می‌تواند روند بهبود کودک را سریع‌تر و کم‌تنش‌تر کند.',
+                'image' => asset('theme/assets/images/blog-card.png'),
+            ],
+        ],
+        'creativity' => [
+            [
+                'title' => 'چطور خلاقیت کودک را تقویت کنیم؟',
+                'desc' => 'فعالیت‌های ساده و مؤثر برای شکوفایی ذهن خلاق کودک در خانه و مدرسه.',
+                'image' => asset('theme/assets/images/blog-card.png'),
+            ],
+            [
+                'title' => 'بازی‌هایی که ذهن کودک را باز می‌کنند',
+                'desc' => 'بازی‌های هدفمند می‌توانند هم سرگرم‌کننده باشند و هم خلاقیت را افزایش دهند.',
+                'image' => asset('theme/assets/images/blog-card.png'),
+            ],
+            [
+                'title' => 'اشتباهات رایج در پرورش خلاقیت',
+                'desc' => 'گاهی برخی رفتارهای ناآگاهانه باعث محدود شدن قدرت تخیل در کودکان می‌شود.',
+                'image' => asset('theme/assets/images/blog-card.png'),
+            ],
+        ],
+        'play' => [
+            [
+                'title' => 'بهترین بازی‌های گروهی برای کودکان',
+                'desc' => 'بازی‌های گروهی به رشد مهارت‌های اجتماعی، اعتمادبه‌نفس و همکاری کودک کمک می‌کنند.',
+                'image' => asset('theme/assets/images/blog-card.png'),
+            ],
+            [
+                'title' => 'بازی درمانی چیست و چه کاربردی دارد؟',
+                'desc' => 'بازی‌درمانی یکی از روش‌های مؤثر برای درک احساسات و حل چالش‌های رفتاری کودکان است.',
+                'image' => asset('theme/assets/images/blog-card.png'),
+            ],
+            [
+                'title' => 'چطور زمان بازی مفید بسازیم؟',
+                'desc' => 'با چند روش ساده می‌توان زمان بازی کودک را هدفمندتر و باکیفیت‌تر کرد.',
+                'image' => asset('theme/assets/images/blog-card.png'),
+            ],
+        ],
+        'craft' => [
+            [
+                'title' => 'کاردستی‌های ساده و کم‌هزینه برای خانه',
+                'desc' => 'با چند وسیله ساده می‌توانید فعالیت‌هایی جذاب و آموزشی برای کودک بسازید.',
+                'image' => asset('theme/assets/images/blog-card.png'),
+            ],
+            [
+                'title' => 'کاردستی و تقویت مهارت دست‌ورزی',
+                'desc' => 'ساخت کاردستی می‌تواند هماهنگی چشم و دست و تمرکز کودک را تقویت کند.',
+                'image' => asset('theme/assets/images/blog-card.png'),
+            ],
+            [
+                'title' => 'ایده‌های جذاب کاردستی برای مهد و مدرسه',
+                'desc' => 'فعالیت‌هایی کاربردی که برای مربیان و والدین در مناسبت‌های مختلف مفید هستند.',
+                'image' => asset('theme/assets/images/blog-card.png'),
+            ],
+        ],
+    ];
+
+    $places = [
+        ['title' => 'شهر بازی پارک ارم', 'city' => 'تهران', 'image' => asset('theme/assets/images/park.png')],
+        ['title' => 'باغ کتاب کودکان', 'city' => 'تهران', 'image' => asset('theme/assets/images/park.png')],
+        ['title' => 'پارک ژوراسیک', 'city' => 'تهران', 'image' => asset('theme/assets/images/park.png')],
+        ['title' => 'خانه بازی رنگین‌کمان', 'city' => 'کرج', 'image' => asset('theme/assets/images/park.png')],
+        ['title' => 'دهکده بازی کودک', 'city' => 'اصفهان', 'image' => asset('theme/assets/images/park.png')],
+    ];
+
+    $faqs = [
+        [
+            'q' => 'آیا این دوره پیش‌نیاز دارد؟',
+            'a' => 'خیر، بیشتر دوره‌ها به‌گونه‌ای طراحی شده‌اند که والدین و مربیان بدون پیش‌نیاز تخصصی هم بتوانند از آن‌ها استفاده کنند.'
+        ],
+        [
+            'q' => 'محتوا برای چه رده سنی مناسب است؟',
+            'a' => 'محتواها برای گروه‌های سنی مختلف دسته‌بندی شده‌اند و شما می‌توانید متناسب با سن کودک، بخش مناسب را انتخاب کنید.'
+        ],
+        [
+            'q' => 'آیا امکان مشاوره با متخصص وجود دارد؟',
+            'a' => 'بله، در بخش پزشکان و متخصصان می‌توانید افراد مناسب را پیدا کرده و برای دریافت مشاوره اقدام کنید.'
+        ],
+        [
+            'q' => 'آیا مقالات سایت به‌روز می‌شوند؟',
+            'a' => 'بله، مقالات و راهنماها به‌صورت مداوم به‌روزرسانی می‌شوند تا اطلاعات کاربردی و جدید در اختیار شما قرار گیرد.'
+        ],
+    ];
+
+    $products = [
+        [
+            'title' => 'شیشه شیر',
+            'rate' => '4.5',
+            'desc' => 'این شیشه شیر از برند پینو می‌باشد و برای استفاده روزمره بسیار کاربردی است.',
+            'old_price' => '260,000 تومان',
+            'price' => '200,000 تومان',
+            'image' => asset('theme/assets/images/16 1.png'),
+        ],
+        [
+            'title' => 'پستانک سیلیکونی',
+            'rate' => '4.7',
+            'desc' => 'طراحی استاندارد، کیفیت مناسب و متریال ایمن برای استفاده کودک.',
+            'old_price' => '180,000 تومان',
+            'price' => '145,000 تومان',
+            'image' => asset('theme/assets/images/16 1.png'),
+        ],
+        [
+            'title' => 'سرلاک‌خوری',
+            'rate' => '4.6',
+            'desc' => 'مناسب تغذیه راحت‌تر کودک و ساخته‌شده از مواد اولیه باکیفیت.',
+            'old_price' => '210,000 تومان',
+            'price' => '169,000 تومان',
+            'image' => asset('theme/assets/images/16 1.png'),
+        ],
+        [
+            'title' => 'ظرف غذای کودک',
+            'rate' => '4.4',
+            'desc' => 'سبک، کاربردی و مناسب برای نگهداری و سرو غذای کودک.',
+            'old_price' => '230,000 تومان',
+            'price' => '189,000 تومان',
+            'image' => asset('theme/assets/images/16 1.png'),
+        ],
+    ];
+@endphp
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <base href="{{ asset('theme') }}/">
-    <link rel="stylesheet" href="assets/css/owl.carousel.css">
-    <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="assets/css/all.css">
-    <link rel="stylesheet" href="assets/css/header.css">
-    <link rel="stylesheet" href="assets/css/landing.css">
-    <link rel="stylesheet" href="assets/css/footer.css">
-    <title>Document</title>
+    <title>صفحه اصلی</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+        :root{
+            --primary:#AC3DEB;
+            --primary-dark:#612385;
+            --primary-soft:#F7E8FF;
+            --text-dark:#39342F;
+            --text-muted:#7B7680;
+            --bg-soft:#FCF8FF;
+            --white:#ffffff;
+            --radius-xl:32px;
+            --radius-lg:24px;
+            --shadow-soft:0 20px 60px rgba(172, 61, 235, 0.12);
+            --shadow-card:0 16px 40px rgba(17, 12, 46, 0.08);
+        }
+
+        body{
+            font-family: Yekan, IRANSans, Vazirmatn, sans-serif;
+            background: #fff;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+        .section-space{
+            padding: 90px 0;
+        }
+
+        .section-title{
+            margin-bottom: 1rem;
+        }
+
+        .section-title .badge-title{
+            background: var(--primary-soft);
+            color: var(--primary);
+            border-radius: 999px;
+            padding: .6rem 1rem;
+            font-size: .875rem;
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-title h2{
+            font-size: clamp(1.6rem, 2vw, 2.3rem);
+            font-weight: 800;
+            margin-bottom: .75rem;
+        }
+
+        .section-title p{
+            color: var(--text-muted);
+            margin-bottom: 0;
+            line-height: 2;
+        }
+
+        .hero-section{
+            padding-top: 40px;
+            padding-bottom: 120px;
+        }
+
+        .hero-box{
+            position: relative;
+            border-radius: 40px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #c85cfb 0%, #8d32c4 40%, #612385 100%);
+            min-height: 500px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .hero-overlay{
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at top right, rgba(255,255,255,.20), transparent 25%),
+                radial-gradient(circle at bottom left, rgba(255,255,255,.12), transparent 20%);
+        }
+
+        .hero-content{
+            position: relative;
+            z-index: 2;
+            padding: 60px 40px 170px;
+        }
+
+        .hero-content h1{
+            color: #fff;
+            font-weight: 900;
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p{
+            color: rgba(255,255,255,.9);
+            max-width: 560px;
+            line-height: 2.1;
+            margin-bottom: 1.75rem;
+        }
+
+        .hero-actions .btn{
+            border-radius: 999px;
+            padding: .9rem 1.5rem;
+            font-weight: 600;
+        }
+
+        .hero-visual{
+            position: relative;
+            z-index: 2;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 500px;
+        }
+
+        .hero-image-box{
+            width: 100%;
+            max-width: 420px;
+            background: rgba(255,255,255,.12);
+            border: 1px solid rgba(255,255,255,.18);
+            backdrop-filter: blur(6px);
+            border-radius: 34px;
+            padding: 22px;
+            box-shadow: 0 25px 60px rgba(0,0,0,.15);
+        }
+
+        .hero-image-box img{
+            width: 100%;
+            border-radius: 28px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .age-panel{
+            position: absolute;
+            right: 50%;
+            transform: translateX(50%);
+            bottom: -75px;
+            z-index: 5;
+            width: calc(100% - 60px);
+            background: #fff;
+            border-radius: 30px;
+            padding: 24px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .age-grid{
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .age-chip{
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #fff;
+            border: 1px solid #f0d7ff;
+            border-radius: 22px;
+            padding: 14px 16px;
+            transition: .25s ease;
+            cursor: pointer;
+        }
+
+        .age-chip:hover,
+        .age-chip.active{
+            background: var(--primary-soft);
+            border-color: rgba(172,61,235,.25);
+            transform: translateY(-2px);
+        }
+
+        .age-icon{
+            width: 52px;
+            height: 52px;
+            border-radius: 18px;
+            background: #fde9ff;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .age-chip span{
+            font-size: .95rem;
+            color: #6d6570;
+            font-weight: 600;
+        }
+
+        .topic-card{
+            position: relative;
+            overflow: hidden;
+            border-radius: 120px 120px 24px 24px;
+            box-shadow: var(--shadow-soft);
+            min-height: 290px;
+        }
+
+        .topic-card img{
+            width: 100%;
+            height: 100%;
+            min-height: 290px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .topic-card::after{
+            content:'';
+            position:absolute;
+            inset:0;
+            background: linear-gradient(to top, rgba(97,35,133,.9), rgba(172,61,235,.15));
+        }
+
+        .topic-content{
+            position: absolute;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            z-index: 2;
+            color: #fff;
+            padding: 20px 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .topic-content h3{
+            font-size: 1rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .floating-icon{
+            width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            background: rgba(255,255,255,.18);
+            border: 1px solid rgba(255,255,255,.25);
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .soft-section{
+            background: linear-gradient(180deg, #fff 0%, #fcf7ff 100%);
+        }
+
+        .search-box{
+            background: #fff;
+            border-radius: 999px;
+            padding: .5rem;
+            border: 1px solid #efe4f7;
+            box-shadow: var(--shadow-card);
+        }
+
+        .search-box .form-control,
+        .search-box .form-select{
+            border: none;
+            box-shadow: none !important;
+            background: transparent;
+            min-height: 48px;
+        }
+
+        .search-box .input-group-text{
+            background: transparent;
+            border: none;
+            color: var(--primary);
+        }
+
+        .doctor-card,
+        .blog-card,
+        .place-card,
+        .product-card{
+            border: none;
+            border-radius: 28px;
+            box-shadow: var(--shadow-card);
+            transition: .25s ease;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .doctor-card:hover,
+        .blog-card:hover,
+        .place-card:hover,
+        .product-card:hover{
+            transform: translateY(-6px);
+            box-shadow: 0 22px 50px rgba(172, 61, 235, 0.16);
+        }
+
+        .doctor-avatar{
+            width: 62px;
+            height: 62px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        .rating-badge{
+            background: #fff7d6;
+            color: #9d6a00;
+            border-radius: 999px;
+            padding: .35rem .7rem;
+            font-size: .85rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .custom-pills{
+            gap: .75rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .custom-pills .nav-link{
+            border: none;
+            border-radius: 999px;
+            background: #fde7ff;
+            color: #d452e9;
+            padding: .85rem 1.3rem;
+            font-weight: 700;
+        }
+
+        .custom-pills .nav-link.active{
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .blog-thumb{
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 22px;
+        }
+
+        .icon-btn{
+            width: 46px;
+            height: 46px;
+            border-radius: 16px;
+            border: none;
+            background: #fde7ff;
+            color: var(--primary);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: .2s ease;
+        }
+
+        .icon-btn:hover{
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .scroll-wrapper{
+            position: relative;
+        }
+
+        .scroll-track{
+            display: flex;
+            gap: 1.25rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding-bottom: .5rem;
+        }
+
+        .scroll-track::-webkit-scrollbar{
+            height: 8px;
+        }
+
+        .scroll-track::-webkit-scrollbar-thumb{
+            background: #ead8f6;
+            border-radius: 999px;
+        }
+
+        .place-card,
+        .product-card{
+            min-width: 300px;
+            max-width: 300px;
+            flex: 0 0 auto;
+        }
+
+        .place-img{
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+            border-radius: 120px 120px 26px 26px;
+        }
+
+        .place-meta{
+            color: var(--text-muted);
+            font-size: .92rem;
+        }
+
+        .btn-theme{
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 999px;
+            padding: .85rem 1.3rem;
+            font-weight: 700;
+        }
+
+        .btn-theme:hover{
+            background: var(--primary-dark);
+            color: #fff;
+        }
+
+        .btn-soft{
+            background: #f4e3ff;
+            color: var(--primary);
+            border: none;
+            border-radius: 999px;
+            padding: .85rem 1.3rem;
+            font-weight: 700;
+        }
+
+        .faq-box{
+            background: #fff;
+            border-radius: 34px;
+            padding: 24px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .accordion-item{
+            border: 1px solid #f0dff8 !important;
+            border-radius: 20px !important;
+            overflow: hidden;
+            margin-bottom: 16px;
+        }
+
+        .accordion-button{
+            font-weight: 700;
+            color: var(--text-dark);
+            background: #fff;
+            box-shadow: none !important;
+            padding: 1.2rem 1.25rem;
+        }
+
+        .accordion-button:not(.collapsed){
+            background: var(--primary-soft);
+            color: var(--primary);
+        }
+
+        .accordion-body{
+            color: var(--text-muted);
+            line-height: 2;
+            padding-top: 0;
+        }
+
+        .question-visual{
+            background: linear-gradient(135deg, #f8ecff, #fff);
+            border-radius: 34px;
+            padding: 24px;
+            box-shadow: var(--shadow-card);
+            text-align: center;
+        }
+
+        .question-visual img{
+            max-width: 100%;
+            height: auto;
+        }
+
+        .products-box{
+            background: linear-gradient(135deg, #fff 0%, #fcf7ff 100%);
+            border-radius: 40px;
+            padding: 36px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .product-thumb{
+            width: 160px;
+            height: 160px;
+            object-fit: contain;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .old-price{
+            text-decoration: line-through;
+            color: #9b94a0;
+            font-size: .9rem;
+        }
+
+        .new-price{
+            color: var(--primary);
+            font-size: 1.05rem;
+            font-weight: 800;
+        }
+
+        .add-cart{
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            background: #f4e1ff;
+            color: var(--primary);
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media (max-width: 1199.98px){
+            .age-grid{
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .hero-content{
+                padding-bottom: 190px;
+            }
+        }
+
+        @media (max-width: 991.98px){
+            .hero-content,
+            .hero-visual{
+                min-height: auto;
+            }
+
+            .hero-content{
+                padding: 40px 24px 210px;
+            }
+
+            .hero-visual{
+                padding: 0 24px 24px;
+            }
+
+            .age-panel{
+                width: calc(100% - 30px);
+                bottom: -120px;
+            }
+
+            .section-space{
+                padding: 70px 0;
+            }
+        }
+
+        @media (max-width: 767.98px){
+            .hero-box{
+                min-height: auto;
+            }
+
+            .hero-content{
+                padding: 32px 18px 250px;
+                text-align: center;
+            }
+
+            .hero-content p{
+                margin-inline: auto;
+            }
+
+            .hero-actions{
+                justify-content: center !important;
+            }
+
+            .hero-visual{
+                padding: 0 18px 18px;
+            }
+
+            .age-grid{
+                grid-template-columns: 1fr;
+            }
+
+            .age-panel{
+                padding: 16px;
+                bottom: -180px;
+            }
+
+            .topic-card{
+                border-radius: 80px 80px 24px 24px;
+            }
+
+            .products-box{
+                padding: 22px;
+            }
+
+            .place-card,
+            .product-card{
+                min-width: 260px;
+                max-width: 260px;
+            }
+        }
+    </style>
 </head>
 <body>
+
     @include('theme.partials.header')
 
     <main>
-        <section class="big-banner-container">
-            <div class="big-banner-image"></div>
-            <div class="big-banner-item">
-                <div class="bb-item">
-                    <div class="bb-img"></div>
-                    <span>نوزاد تا 1 سالگی</span>
-                </div>
-                <div class="bb-item">
-                    <div class="bb-img"></div>
-                    <span>1 تا 2 سالگی</span>
-                </div>
-                <div class="bb-item">
-                    <div class="bb-img"></div>
-                    <span>2 تا 3 سالگی</span>
-                </div>
-                <div class="bb-item">
-                    <div class="bb-img"></div>
-                    <span>3 تا 5 سالگی</span>
-                </div>
-                <div class="bb-item">
-                    <div class="bb-img"></div>
-                    <span>6 تا 8 سالگی</span>
-                </div>
-                <div class="bb-item">
-                    <div class="bb-img"></div>
-                    <span>9 تا 11 سالگی</span>
-                </div>
-                <div class="bb-item">
-                    <div class="bb-img"></div>
-                    <span>12 تا 14 سالگی</span>
-                </div>
-                <div class="bb-item">
-                    <div class="bb-img"></div>
-                    <span>15 تا 17 سالگی</span>
-                </div>
-            </div>
-        </section>
+        <!-- Hero -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-box">
+                    <div class="hero-overlay"></div>
 
-        <section class="section2">
-            <div class="section2-banner">
-                <img src="assets/images/section2 image1.png" alt="">
-                <div class="banner-shadow"></div>
-                <div class="banner-foot">
-                    <span>خلاقیت کودکان</span>
-                    <img src="assets/images/Vector 174.svg" alt="">
-                </div>
-            </div>
-            <div class="section2-banner">
-                <img src="assets/images/section2 image2.png" alt="">
-                <div class="banner-shadow"></div>
-                <div class="banner-foot">
-                    <span>خانواده کودکان</span>
-                    <img src="assets/images/Vector 174.svg" alt="">
-                </div>
-            </div>
-            <div class="section2-banner">
-                <img src="assets/images/section2 image3.png" alt="">
-                <div class="banner-shadow"></div>
-                <div class="banner-foot">
-                    <span>اختلاتات یادگیری</span>
-                    <img src="assets/images/Vector 174.svg" alt="">
-                </div>
-            </div>
-            <div class="section2-banner">
-                <img src="assets/images/section2 image4.png" alt="">
-                <div class="banner-shadow"></div>
-                <div class="banner-foot">
-                    <span>پزشک کودکان</span>
-                    <img src="assets/images/Vector 174.svg" alt="">
-                </div>
-            </div>
-        </section>
+                    <div class="row align-items-center g-0">
+                        <div class="col-lg-7">
+                            <div class="hero-content">
+                                <span class="badge rounded-pill text-bg-light px-3 py-2 mb-3">
+                                    <i class="bi bi-stars ms-2"></i>
+                                    همراه خانواده‌ها در رشد بهتر کودک
+                                </span>
 
-        <!-- <section class="docters-container">
-            <div class="docters-head">
-                <h1>برترین پزشکان</h1>
-                <img src="assets/images/Star 6.png" alt="">
-                <div class="docters-information">
-                    <div class="docters-search">
-                        <div class="choose-city">
-                            <img class="location" src="assets/images/location 03.svg" alt="">
-                            <span>انتخاب شهر</span>
-                            <img class="vector" src="assets/images/Vector 175.svg" alt="">
+                                <h1>مرجع کامل آموزش، رشد، سرگرمی و محصولات کودک</h1>
+
+                                <p>
+                                    در این صفحه می‌توانید متناسب با سن کودک، مقالات آموزشی، پزشکان و متخصصان،
+                                    مکان‌های تفریحی و محصولات کاربردی را به‌صورت دسته‌بندی‌شده مشاهده کنید.
+                                </p>
+
+                                <div class="hero-actions d-flex flex-wrap gap-3">
+                                    <a href="#blogs" class="btn btn-light">مشاهده مقالات</a>
+                                    <a href="#products" class="btn btn-outline-light">محصولات پیشنهادی</a>
+                                </div>
+                            </div>
                         </div>
-                        <img src="assets/images/search 01.svg" alt="">
-                        <input type="search" id="search" placeholder="نام پزشک، تخصص و...">
-                    </div>
-                    <div class="docters-popup">
-                        <span>پزشک کودکان</span>
-                        <img src="assets/images/Vector svg.svg" alt="">
-                    </div>
-                </div>
-            </div>
-            
-            <div class="doctors-name">
-                <div class="docters-item">
-                    <div class="docter-image">
-                        <img src="assets/images/user.svg" alt="">
-                    </div>
-                    <div class="docter-name">
-                        <h1>محمدحسین شاکری</h1>
-                        <span>متخصص کودکان</span>
-                    </div>
-                    <div class="docter-rating">
-                        <span>4.5</span>
-                        <img src="assets/images/Star 5.png" alt="">
-                    </div>
-                </div>
 
-                <div class="docters-item">
-                    <div class="docter-image">
-                        <img src="assets/images/user.svg" alt="">
-                    </div>
-                    <div class="docter-name">
-                        <h1>محمدحسین شاکری</h1>
-                        <span>متخصص کودکان</span>
-                    </div>
-                    <div class="docter-rating">
-                        <span>4.5</span>
-                        <img src="assets/images/Star 5.png" alt="">
-                    </div>
-                </div>
-
-                <div class="docters-item">
-                    <div class="docter-image">
-                        <img src="assets/images/user.svg" alt="">
-                    </div>
-                    <div class="docter-name">
-                        <h1>محمدحسین شاکری</h1>
-                        <span>متخصص کودکان</span>
-                    </div>
-                    <div class="docter-rating">
-                        <span>4.5</span>
-                        <img src="assets/images/Star 5.png" alt="">
-                    </div>
-                </div>
-
-                <div class="docters-item">
-                    <div class="docter-image">
-                        <img src="assets/images/user.svg" alt="">
-                    </div>
-                    <div class="docter-name">
-                        <h1>محمدحسین شاکری</h1>
-                        <span>متخصص کودکان</span>
-                    </div>
-                    <div class="docter-rating">
-                        <span>4.5</span>
-                        <img src="assets/images/Star 5.png" alt="">
-                    </div>
-                </div>
-
-                <div class="docters-item">
-                    <div class="docter-image">
-                        <img src="assets/images/user.svg" alt="">
-                    </div>
-                    <div class="docter-name">
-                        <h1>محمدحسین شاکری</h1>
-                        <span>متخصص کودکان</span>
-                    </div>
-                    <div class="docter-rating">
-                        <span>4.5</span>
-                        <img src="assets/images/Star 5.png" alt="">
-                    </div>
-                </div>
-
-                <div class="docters-item">
-                    <div class="docter-image">
-                        <img src="assets/images/user.svg" alt="">
-                    </div>
-                    <div class="docter-name">
-                        <h1>محمدحسین شاکری</h1>
-                        <span>متخصص کودکان</span>
-                    </div>
-                    <div class="docter-rating">
-                        <span>4.5</span>
-                        <img src="assets/images/Star 5.png" alt="">
-                    </div>
-                </div>
-
-                <div class="docters-item">
-                    <div class="docter-image">
-                        <img src="assets/images/user.svg" alt="">
-                    </div>
-                    <div class="docter-name">
-                        <h1>محمدحسین شاکری</h1>
-                        <span>متخصص کودکان</span>
-                    </div>
-                    <div class="docter-rating">
-                        <span>4.5</span>
-                        <img src="assets/images/Star 5.png" alt="">
-                    </div>
-                </div>
-
-                <div class="docters-item">
-                    <div class="docter-image">
-                        <img src="assets/images/user.svg" alt="">
-                    </div>
-                    <div class="docter-name">
-                        <h1>محمدحسین شاکری</h1>
-                        <span>متخصص کودکان</span>
-                    </div>
-                    <div class="docter-rating">
-                        <span>4.5</span>
-                        <img src="assets/images/Star 5.png" alt="">
-                    </div>
-                </div>
-
-                <div class="docters-item">
-                    <div class="docter-image">
-                        <img src="assets/images/user.svg" alt="">
-                    </div>
-                    <div class="docter-name">
-                        <h1>محمدحسین شاکری</h1>
-                        <span>متخصص کودکان</span>
-                    </div>
-                    <div class="docter-rating">
-                        <span>4.5</span>
-                        <img src="assets/images/Star 5.png" alt="">
-                    </div>
-                </div>
-
-                <div class="docters-item">
-                    <div class="docter-image">
-                        <img src="assets/images/user.svg" alt="">
-                    </div>
-                    <div class="docter-name">
-                        <h1>محمدحسین شاکری</h1>
-                        <span>متخصص کودکان</span>
-                    </div>
-                    <div class="docter-rating">
-                        <span>4.5</span>
-                        <img src="assets/images/Star 5.png" alt="">
-                    </div>
-                </div>
-
-                <div class="docters-item">
-                    <div class="docter-image">
-                        <img src="assets/images/user.svg" alt="">
-                    </div>
-                    <div class="docter-name">
-                        <h1>محمدحسین شاکری</h1>
-                        <span>متخصص کودکان</span>
-                    </div>
-                    <div class="docter-rating">
-                        <span>4.5</span>
-                        <img src="assets/images/Star 5.png" alt="">
-                    </div>
-                </div>
-
-                <div class="docters-item">
-                    <div class="docter-image">
-                        <img src="assets/images/user.svg" alt="">
-                    </div>
-                    <div class="docter-name">
-                        <h1>محمدحسین شاکری</h1>
-                        <span>متخصص کودکان</span>
-                    </div>
-                    <div class="docter-rating">
-                        <span>4.5</span>
-                        <img src="assets/images/Star 5.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </section> -->
-
-        <section class="blog">
-            <h1 class="blog-title"><b>مقالات وبسایت</b></h1>
-            <div class="blog-item">
-                <div class="blog-card blog-card-active blog-card1"><span>اختلالات یادگیری</span></div>
-                <div class="blog-card blog-card2"><span>خلاقیت</span></div>
-                <div class="blog-card blog-card3"><span>بازی</span></div>
-                <div class="blog-card blog-card4"><span>کاردستی</span></div>
-            </div>
-
-            <div class="blog-slide blog-item1">
-                <div class="owl-carousel owl-one owl-theme">
-                    <div class="item blog-cardslide">
-                        <img src="assets/images/blog-card.png" alt="">
-                        <h1>دیر یادگرفتن مطالب توسط کودکان</h1>
-                        <div class="card-foot">
-                            <p>لورم اپیسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است...</p>
-    
-                            <div class="submit-card">
-                                <img src="assets/images/direction-left.png" alt="">
+                        <div class="col-lg-5">
+                            <div class="hero-visual">
+                                <div class="hero-image-box">
+                                    <img src="{{ asset('theme/assets/images/section2 image1.png') }}" alt="کودک">
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="blog-slide blog-item2">
-                <div class="owl-carousel owl-one owl-theme">
-                    <div class="item blog-cardslide">
-                        <img src="assets/images/blog-card.png" alt="">
-                        <h1>دیر یادگرفتن مطالب توسط کودکان</h1>
-                        <div class="card-foot">
-                            <p>لورم اپیسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است...</p>
-    
-                            <div class="submit-card">
-                                <img src="assets/images/direction-left.png" alt="">
+
+                    <div class="age-panel">
+                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-4">
+                            <div>
+                                <h5 class="mb-1 fw-bold">دسته‌بندی سنی</h5>
+                                <p class="mb-0 text-secondary">سن کودک را انتخاب کنید تا محتواها هدفمندتر نمایش داده شوند.</p>
                             </div>
+                            <span class="text-secondary small">
+                                <i class="bi bi-grid-3x3-gap-fill ms-1"></i>
+                                8 گروه سنی
+                            </span>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="blog-slide blog-item3">
-                <div class="owl-carousel owl-one owl-theme">
-                    <div class="item blog-cardslide">
-                        <img src="assets/images/blog-card.png" alt="">
-                        <h1>دیر یادگرفتن مطالب توسط کودکان</h1>
-                        <div class="card-foot">
-                            <p>لورم اپیسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است...</p>
-    
-                            <div class="submit-card">
-                                <img src="assets/images/direction-left.png" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="blog-slide blog-item4">
-                <div class="owl-carousel owl-one owl-theme">
-                    <div class="item blog-cardslide">
-                        <img src="assets/images/blog-card.png" alt="">
-                        <h1>دیر یادگرفتن مطالب توسط کودکان</h1>
-                        <div class="card-foot">
-                            <p>لورم اپیسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است...</p>
-    
-                            <div class="submit-card">
-                                <img src="assets/images/direction-left.png" alt="">
-                            </div>
+
+                        <div class="age-grid">
+                            @foreach($ageGroups as $age)
+                                <div class="age-chip {{ $loop->first ? 'active' : '' }}">
+                                    <div class="age-icon">
+                                        <i class="bi bi-balloon-heart"></i>
+                                    </div>
+                                    <span>{{ $age }}</span>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="child-container">
-            <div class="child-head">
-                <h1>تفریح کودکان</h1>
-                <img src="assets/images/Star 6.png" alt="">
-                <div class="child-information">
-                    <div class="child-search">
-                        <div class="choose-city">
-                            <img class="location" src="assets/images/location 03.svg" alt="">
-                            <span>فیلترها</span>
-                            <img class="vector" src="assets/images/Vector 175.svg" alt="">
+        <!-- Topics -->
+        <section class="section-space pt-5">
+            <div class="container">
+                <div class="row g-4">
+                    @foreach($topics as $topic)
+                        <div class="col-6 col-lg-3">
+                            <a href="#" class="topic-card d-block">
+                                <img src="{{ $topic['image'] }}" alt="{{ $topic['title'] }}">
+                                <div class="topic-content">
+                                    <h3>{{ $topic['title'] }}</h3>
+                                    <span class="floating-icon">
+                                        <i class="bi bi-arrow-left"></i>
+                                    </span>
+                                </div>
+                            </a>
                         </div>
-                        <img src="assets/images/search 01.svg" alt="">
-                        <input type="search" id="search" placeholder="جستجو مکان مورد نظر">
+                    @endforeach
+                </div>
+            </div>
+        </section>
+
+        <!-- Doctors -->
+        <section class="section-space soft-section">
+            <div class="container">
+                <div class="row align-items-end justify-content-between g-4 mb-4">
+                    <div class="col-lg-5">
+                        <div class="section-title">
+                            <span class="badge-title">
+                                <i class="bi bi-heart-pulse-fill"></i>
+                                برترین پزشکان
+                            </span>
+                            <h2>متخصص مناسب کودک خود را سریع‌تر پیدا کنید</h2>
+                            <p>جستجو بر اساس نام، تخصص یا حوزه فعالیت برای دسترسی راحت‌تر به پزشکان و متخصصان کودک.</p>
+                        </div>
                     </div>
-                    <div class="child-btns">
-                        <div class="chide-btns-next">
-                            <img src="assets/images/direction-right 01.png" alt="">
-                        </div>
-                        <div class="chide-btns-prev">
-                            <img src="assets/images/direction-left 01.png" alt="">
+
+                    <div class="col-lg-7">
+                        <div class="search-box">
+                            <div class="row g-2 align-items-center">
+                                <div class="col-md-4">
+                                    <select class="form-select">
+                                        <option>انتخاب شهر</option>
+                                        <option>تهران</option>
+                                        <option>کرج</option>
+                                        <option>اصفهان</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="input-group">
+                                        <span class="input-group-text">
+                                            <i class="bi bi-search"></i>
+                                        </span>
+                                        <input type="text" id="doctorSearch" class="form-control" placeholder="نام پزشک، تخصص و ...">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <select class="form-select">
+                                        <option>پزشک کودکان</option>
+                                        <option>روانشناس کودک</option>
+                                        <option>کاردرمانگر</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="location-box">
-                <div class="owl-carousel owl-two owl-theme">
 
-                    <div class="item location-card">
-                        <img src="assets/images/park.png" alt="">
-                        <div class="park-information">
-                            <h1>شهر بازی پارک ارم</h1>
-                            <div class="park-loc">
-                                <img src="assets/images/location 03.png" alt="">
-                                <span>تهران</span>
+                <div class="row g-4" id="doctorList">
+                    @foreach($doctors as $doctor)
+                        <div class="col-sm-6 col-xl-3 doctor-item">
+                            <div class="doctor-card p-3 h-100">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="doctor-avatar">
+                                        <i class="bi bi-person-fill"></i>
+                                    </div>
+
+                                    <div class="flex-grow-1">
+                                        <h6 class="mb-1 fw-bold doctor-name">{{ $doctor['name'] }}</h6>
+                                        <div class="text-secondary small doctor-specialty">{{ $doctor['specialty'] }}</div>
+                                    </div>
+
+                                    <span class="rating-badge">
+                                        <i class="bi bi-star-fill ms-1"></i>
+                                        {{ $doctor['rate'] }}
+                                    </span>
+                                </div>
                             </div>
                         </div>
-                        <div class="park-btn"><span>بزن بریم!</span></div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+
+        <!-- Blogs -->
+        <section class="section-space" id="blogs">
+            <div class="container">
+                <div class="section-title text-center mb-5">
+                    <span class="badge-title justify-content-center">
+                        <i class="bi bi-journal-richtext"></i>
+                        مقالات وبسایت
+                    </span>
+                    <h2>مطالب آموزشی و کاربردی برای والدین و کودکان</h2>
+                    <p>مقالات بر اساس موضوع دسته‌بندی شده‌اند تا سریع‌تر به محتوای موردنیاز خود برسید.</p>
+                </div>
+
+                <ul class="nav nav-pills custom-pills" id="blogTab" role="tablist">
+                    @foreach($blogTabs as $key => $tab)
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link {{ $loop->first ? 'active' : '' }}"
+                                    id="{{ $key }}-tab"
+                                    data-bs-toggle="pill"
+                                    data-bs-target="#{{ $key }}"
+                                    type="button"
+                                    role="tab">
+                                {{ $tab }}
+                            </button>
+                        </li>
+                    @endforeach
+                </ul>
+
+                <div class="tab-content">
+                    @foreach($blogs as $key => $items)
+                        <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}" id="{{ $key }}" role="tabpanel">
+                            <div class="row g-4">
+                                @foreach($items as $blog)
+                                    <div class="col-md-6 col-xl-4">
+                                        <div class="blog-card p-3 h-100">
+                                            <img src="{{ $blog['image'] }}" class="blog-thumb mb-4" alt="{{ $blog['title'] }}">
+                                            <h5 class="fw-bold mb-3">{{ $blog['title'] }}</h5>
+
+                                            <div class="d-flex align-items-end justify-content-between gap-3">
+                                                <p class="text-secondary mb-0 lh-lg">{{ $blog['desc'] }}</p>
+
+                                                <a href="#" class="icon-btn flex-shrink-0">
+                                                    <i class="bi bi-arrow-left"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+
+        <!-- Places -->
+        <section class="section-space soft-section">
+            <div class="container">
+                <div class="row align-items-end justify-content-between g-4 mb-4">
+                    <div class="col-lg-5">
+                        <div class="section-title">
+                            <span class="badge-title">
+                                <i class="bi bi-emoji-smile-fill"></i>
+                                تفریح کودکان
+                            </span>
+                            <h2>مکان‌های مناسب کودک را پیدا کنید</h2>
+                            <p>جستجو و بررسی مکان‌های تفریحی، بازی و سرگرمی مناسب برای کودکان در شهرهای مختلف.</p>
+                        </div>
                     </div>
-                    <div class="location-card">
-                        <img src="assets/images/park.png" alt="">
-                        <div class="park-information">
-                            <h1>شهر بازی پارک ارم</h1>
-                            <div class="park-loc">
-                                <img src="assets/images/location 03.png" alt="">
-                                <span>تهران</span>
+
+                    <div class="col-lg-7">
+                        <div class="d-flex flex-column flex-md-row gap-3 align-items-stretch">
+                            <div class="search-box flex-grow-1">
+                                <div class="row g-2 align-items-center">
+                                    <div class="col-md-4">
+                                        <select class="form-select">
+                                            <option>فیلترها</option>
+                                            <option>شهر بازی</option>
+                                            <option>خانه بازی</option>
+                                            <option>پارک</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="input-group">
+                                            <span class="input-group-text">
+                                                <i class="bi bi-search"></i>
+                                            </span>
+                                            <input type="text" id="placeSearch" class="form-control" placeholder="جستجو مکان مورد نظر">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-flex gap-2">
+                                <button class="icon-btn" type="button" onclick="scrollTrack('placesTrack', -340)">
+                                    <i class="bi bi-arrow-right"></i>
+                                </button>
+                                <button class="icon-btn" type="button" onclick="scrollTrack('placesTrack', 340)">
+                                    <i class="bi bi-arrow-left"></i>
+                                </button>
                             </div>
                         </div>
-                        <div class="park-btn"><span>بزن بریم!</span></div>
                     </div>
-                    <div class="location-card">
-                        <img src="assets/images/park.png" alt="">
-                        <div class="park-information">
-                            <h1>شهر بازی پارک ارم</h1>
-                            <div class="park-loc">
-                                <img src="assets/images/location 03.png" alt="">
-                                <span>تهران</span>
+                </div>
+
+                <div class="scroll-wrapper">
+                    <div class="scroll-track" id="placesTrack">
+                        @foreach($places as $place)
+                            <div class="place-card p-3 js-place-card">
+                                <img src="{{ $place['image'] }}" class="place-img mb-3" alt="{{ $place['title'] }}">
+                                <div class="d-flex justify-content-between align-items-center mb-3 gap-2">
+                                    <h5 class="mb-0 fw-bold js-place-title">{{ $place['title'] }}</h5>
+                                    <span class="place-meta js-place-city">
+                                        <i class="bi bi-geo-alt-fill ms-1"></i>
+                                        {{ $place['city'] }}
+                                    </span>
+                                </div>
+
+                                <a href="#" class="btn-soft w-100 text-center d-inline-block">بزن بریم!</a>
                             </div>
-                        </div>
-                        <div class="park-btn"><span>بزن بریم!</span></div>
-                    </div>
-                    <div class="location-card">
-                        <img src="assets/images/park.png" alt="">
-                        <div class="park-information">
-                            <h1>شهر بازی پارک ارم</h1>
-                            <div class="park-loc">
-                                <img src="assets/images/location 03.png" alt="">
-                                <span>تهران</span>
-                            </div>
-                        </div>
-                        <div class="park-btn"><span>بزن بریم!</span></div>
+                        @endforeach
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="question">
-            <h1><span style="color: #39342F;">سوالات </span>متداول ؟</h1>
-            <div class="question-group">
-                <div class="accordian">
-                    <div class="accordian-card acc1">
-                        <div style="display: flex; align-items: center; justify-content: space-between;">
-                            <span>آیا این دوره پیش نیاز دارید؟</span>
-                            <img src="assets/images/direction-left 01.svg" alt="">
-                        </div>
-
-                        <div class="accordian-answer1">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, voluptates sed? Soluta architecto dolorum rerum animi nihil ducimus. Ex dicta deserunt, sunt quo dignissimos quod? A minus sit delectus eius vel, corrupti dicta, nihil tenetur illum culpa animi obcaecati fugiat ea suscipit quisquam sequi sint corporis blanditiis iste placeat distinctio, unde dolorem maxime. Cum, nesciunt voluptates porro recusandae accusamus repudiandae, accusantium voluptate quod numquam ipsum, animi praesentium officia eligendi? Sequi minus consequuntur unde earum architecto esse in, totam consequatur et, laudantium neque temporibus! Officia dolores, non aperiam tenetur est animi debitis quisquam, alias ab laboriosam fugit amet totam maxime inventore.</p>
-                        </div>
-                    </div>
-                    <div class="accordian-card acc2">
-                        <div style="display: flex; align-items: center; justify-content: space-between;">
-                            <span>آیا این دوره پیش نیاز دارید؟</span>
-                            <img src="assets/images/direction-left 01.svg" alt="">
-                        </div>
-
-                        <div class="accordian-answer2">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, voluptates sed? Soluta architecto dolorum rerum animi nihil ducimus. Ex dicta deserunt, sunt quo dignissimos quod? A minus sit delectus eius vel, corrupti dicta, nihil tenetur illum culpa animi obcaecati fugiat ea suscipit quisquam sequi sint corporis blanditiis iste placeat distinctio, unde dolorem maxime. Cum, nesciunt voluptates porro recusandae accusamus repudiandae, accusantium voluptate quod numquam ipsum, animi praesentium officia eligendi? Sequi minus consequuntur unde earum architecto esse in, totam consequatur et, laudantium neque temporibus! Officia dolores, non aperiam tenetur est animi debitis quisquam, alias ab laboriosam fugit amet totam maxime inventore.</p>
-                        </div>
-                    </div>
-                    <div class="accordian-card acc3">
-                        <div style="display: flex; align-items: center; justify-content: space-between;">
-                            <span>آیا این دوره پیش نیاز دارید؟</span>
-                            <img src="assets/images/direction-left 01.svg" alt="">
-                        </div>
-
-                        <div class="accordian-answer3">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, voluptates sed? Soluta architecto dolorum rerum animi nihil ducimus. Ex dicta deserunt, sunt quo dignissimos quod? A minus sit delectus eius vel, corrupti dicta, nihil tenetur illum culpa animi obcaecati fugiat ea suscipit quisquam sequi sint corporis blanditiis iste placeat distinctio, unde dolorem maxime. Cum, nesciunt voluptates porro recusandae accusamus repudiandae, accusantium voluptate quod numquam ipsum, animi praesentium officia eligendi? Sequi minus consequuntur unde earum architecto esse in, totam consequatur et, laudantium neque temporibus! Officia dolores, non aperiam tenetur est animi debitis quisquam, alias ab laboriosam fugit amet totam maxime inventore.</p>
-                        </div>
-                    </div>
-                    <div class="accordian-card acc4">
-                        <div style="display: flex; align-items: center; justify-content: space-between;">
-                            <span>آیا این دوره پیش نیاز دارید؟</span>
-                            <img src="assets/images/direction-left 01.svg" alt="">
-                        </div>
-
-                        <div class="accordian-answer4">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, voluptates sed? Soluta architecto dolorum rerum animi nihil ducimus. Ex dicta deserunt, sunt quo dignissimos quod? A minus sit delectus eius vel, corrupti dicta, nihil tenetur illum culpa animi obcaecati fugiat ea suscipit quisquam sequi sint corporis blanditiis iste placeat distinctio, unde dolorem maxime. Cum, nesciunt voluptates porro recusandae accusamus repudiandae, accusantium voluptate quod numquam ipsum, animi praesentium officia eligendi? Sequi minus consequuntur unde earum architecto esse in, totam consequatur et, laudantium neque temporibus! Officia dolores, non aperiam tenetur est animi debitis quisquam, alias ab laboriosam fugit amet totam maxime inventore.</p>
-                        </div>
-                    </div>
+        <!-- FAQ -->
+        <section class="section-space">
+            <div class="container">
+                <div class="section-title text-center mb-5">
+                    <span class="badge-title justify-content-center">
+                        <i class="bi bi-patch-question-fill"></i>
+                        سوالات متداول
+                    </span>
+                    <h2><span class="text-dark">سوالات</span> متداول</h2>
+                    <p>پاسخ پرتکرارترین سوالات کاربران را در این بخش مشاهده کنید.</p>
                 </div>
-                <div class="question-image">
-                    <img src="assets/images/Group 238045.png" alt="">
+
+                <div class="row g-4 align-items-start">
+                    <div class="col-lg-7">
+                        <div class="faq-box">
+                            <div class="accordion accordion-flush" id="faqAccordion">
+                                @foreach($faqs as $faq)
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button {{ $loop->first ? '' : 'collapsed' }}"
+                                                    type="button"
+                                                    data-bs-toggle="collapse"
+                                                    data-bs-target="#faq{{ $loop->index }}">
+                                                {{ $faq['q'] }}
+                                            </button>
+                                        </h2>
+                                        <div id="faq{{ $loop->index }}"
+                                             class="accordion-collapse collapse {{ $loop->first ? 'show' : '' }}"
+                                             data-bs-parent="#faqAccordion">
+                                            <div class="accordion-body">
+                                                {{ $faq['a'] }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="question-visual">
+                            <img src="{{ asset('theme/assets/images/Group 238045.png') }}" alt="سوالات متداول">
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="products">
-            <div class="product-information">
-                <img style="margin-top: 25px; margin-bottom: 10px;" src="assets/images/Group text.png" alt="">
-                <p>لورم اپیسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان</p>
-                <button class="product-btn">مشاهده همه</button>
-            </div>
+        <!-- Products -->
+        <section class="section-space pt-0" id="products">
+            <div class="container">
+                <div class="products-box">
+                    <div class="row align-items-start g-4">
+                        <div class="col-lg-3">
+                            <div class="section-title mb-0">
+                                <span class="badge-title">
+                                    <i class="bi bi-bag-heart-fill"></i>
+                                    محصولات منتخب
+                                </span>
+                                <h2>پیشنهادهای ویژه برای کودک</h2>
+                                <p class="mb-4">
+                                    مجموعه‌ای از محصولات کاربردی و محبوب که می‌توانید سریع‌تر بررسی و خریداری کنید.
+                                </p>
+                                <a href="#" class="btn-theme d-inline-block">مشاهده همه</a>
+                            </div>
+                        </div>
 
-            <div class="owl-carousel owl-three owl-theme owl-css">
-                <div class="item product-card">
-                    <img src="assets/images/16 1.png" alt="">
-                    <div class="product-card-title">
-                        <h1>شیشه شیر</h1>
-                        <span>4.5</span>
-                        <img src="assets/images/Star 5.png" alt="">
-                    </div>
-                    <p>این شیشه شیر از برند پینو میباشد...</p>
-                    <div class="product-price">
-                        <div class="add-product">
-                            <img src="assets/images/bag-add.png" alt="">
-                        </div>
-                        <div class="price">
-                            <span>260،000 تومان</span>
-                            <h1><span style="color: #AC3DEB; text-decoration: none; font-size: 15px;">200،000</span> تومان</h1>
-                        </div>
-                    </div>
-                </div>
-    
-                <div class="item product-card">
-                    <img src="assets/images/16 1.png" alt="">
-                    <div class="product-card-title">
-                        <h1>شیشه شیر</h1>
-                        <span>4.5</span>
-                        <img src="assets/images/Star 5.png" alt="">
-                    </div>
-                    <p>این شیشه شیر از برند پینو میباشد...</p>
-                    <div class="product-price">
-                        <div class="add-product">
-                            <img src="assets/images/bag-add.png" alt="">
-                        </div>
-                        <div class="price">
-                            <span>260،000 تومان</span>
-                            <h1><span style="color: #AC3DEB; text-decoration: none; font-size: 15px;">200،000</span> تومان</h1>
-                        </div>
-                    </div>
-                </div>
-    
-                <div class="item product-card">
-                    <img src="assets/images/16 1.png" alt="">
-                    <div class="product-card-title">
-                        <h1>شیشه شیر</h1>
-                        <span>4.5</span>
-                        <img src="assets/images/Star 5.png" alt="">
-                    </div>
-                    <p>این شیشه شیر از برند پینو میباشد...</p>
-                    <div class="product-price">
-                        <div class="add-product">
-                            <img src="assets/images/bag-add.png" alt="">
-                        </div>
-                        <div class="price">
-                            <span>260،000 تومان</span>
-                            <h1><span style="color: #AC3DEB; text-decoration: none; font-size: 15px;">200،000</span> تومان</h1>
+                        <div class="col-lg-9">
+                            <div class="d-flex justify-content-end gap-2 mb-3">
+                                <button class="icon-btn" type="button" onclick="scrollTrack('productsTrack', -340)">
+                                    <i class="bi bi-arrow-right"></i>
+                                </button>
+                                <button class="icon-btn" type="button" onclick="scrollTrack('productsTrack', 340)">
+                                    <i class="bi bi-arrow-left"></i>
+                                </button>
+                            </div>
+
+                            <div class="scroll-track" id="productsTrack">
+                                @foreach($products as $product)
+                                    <div class="product-card p-4">
+                                        <img src="{{ $product['image'] }}" class="product-thumb mb-3" alt="{{ $product['title'] }}">
+
+                                        <div class="d-flex align-items-center justify-content-between mb-2 gap-2">
+                                            <h5 class="mb-0 fw-bold">{{ $product['title'] }}</h5>
+                                            <span class="rating-badge">
+                                                <i class="bi bi-star-fill ms-1"></i>
+                                                {{ $product['rate'] }}
+                                            </span>
+                                        </div>
+
+                                        <p class="text-secondary lh-lg mb-4">{{ $product['desc'] }}</p>
+
+                                        <div class="d-flex align-items-center justify-content-between gap-3 mt-auto">
+                                            <button class="add-cart" type="button">
+                                                <i class="bi bi-bag-plus"></i>
+                                            </button>
+
+                                            <div class="text-end">
+                                                <div class="old-price">{{ $product['old_price'] }}</div>
+                                                <div class="new-price">{{ $product['price'] }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -547,12 +1181,59 @@
         </section>
     </main>
 
-
     @include('theme.partials.footer')
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/owl.carousel.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function scrollTrack(trackId, amount) {
+            const track = document.getElementById(trackId);
+            if (track) {
+                track.scrollBy({
+                    left: amount,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // فعال شدن انتخاب دسته‌بندی سنی
+        document.querySelectorAll('.age-chip').forEach(chip => {
+            chip.addEventListener('click', function () {
+                document.querySelectorAll('.age-chip').forEach(item => item.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // جستجوی پزشکان
+        const doctorSearch = document.getElementById('doctorSearch');
+        if (doctorSearch) {
+            doctorSearch.addEventListener('input', function () {
+                const value = this.value.trim().toLowerCase();
+                const items = document.querySelectorAll('.doctor-item');
+
+                items.forEach(item => {
+                    const name = item.querySelector('.doctor-name')?.textContent.toLowerCase() || '';
+                    const specialty = item.querySelector('.doctor-specialty')?.textContent.toLowerCase() || '';
+                    item.style.display = (name.includes(value) || specialty.includes(value)) ? '' : 'none';
+                });
+            });
+        }
+
+        // جستجوی مکان‌ها
+        const placeSearch = document.getElementById('placeSearch');
+        if (placeSearch) {
+            placeSearch.addEventListener('input', function () {
+                const value = this.value.trim().toLowerCase();
+                const cards = document.querySelectorAll('.js-place-card');
+
+                cards.forEach(card => {
+                    const title = card.querySelector('.js-place-title')?.textContent.toLowerCase() || '';
+                    const city = card.querySelector('.js-place-city')?.textContent.toLowerCase() || '';
+
+                    card.style.display = (title.includes(value) || city.includes(value)) ? 'block' : 'none';
+                });
+            });
+        }
+    </script>
 </body>
 </html>

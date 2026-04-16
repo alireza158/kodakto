@@ -1,0 +1,154 @@
+/* استایل عمومی */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* عنوان صفحه */
+.title {
+    font-size: 28px;
+    color: #333;
+    margin-top: 40px;
+}
+
+.text-muted {
+    color: #858586;
+}
+
+/* بخش فیلتر */
+.filter-container {
+    width: 28%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.filter-header {
+    font-size: 20px;
+    font-weight: bold;
+    color: #5B554F;
+    margin-bottom: 20px;
+}
+
+.filter-options {
+    font-size: 16px;
+    color: #888;
+}
+
+.filter-item {
+    padding: 12px;
+    border: 1px solid #9A9795;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+    cursor: pointer;
+}
+
+.filter-item:hover {
+    background-color: #f1f1f1;
+}
+
+/* بخش مقالات */
+.blog-content {
+    width: 68%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.blog-card {
+    width: 48%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease;
+}
+
+.blog-card:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+.blog-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.blog-card h2 {
+    font-size: 18px;
+    color: #39342F;
+    margin-bottom: 10px;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-footer p {
+    width: 75%;
+    font-size: 14px;
+    color: #858585;
+}
+
+.submit-card {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #FDE7FF;
+    color: #AC3DEB;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.submit-card img {
+    width: 20px;
+    height: 20px;
+}
+
+/* طراحی برای موبایل */
+@media screen and (max-width: 768px) {
+    .blog-container {
+        flex-direction: column;
+    }
+
+    .filter-container {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .blog-content {
+        width: 100%;
+    }
+
+    .blog-card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .submit-card {
+        width: 35px;
+        height: 35px;
+    }
+
+    .submit-card img {
+        width: 18px;
+        height: 18px;
+    }
+}

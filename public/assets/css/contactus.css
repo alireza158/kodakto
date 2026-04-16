@@ -1,0 +1,224 @@
+.title{
+    font-size: 14px;
+    color: #C2C2C2;
+    margin-top: 40px;
+    margin-right: 50%;
+    margin-bottom: 60px;
+}
+
+.contactus-container{
+    width: 1280px;
+    height: 325px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.contactus-content{
+    width: 302px;
+    height: 325px;
+    padding: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    border-radius: 35px;
+    background-color: #AC3DEB;
+}
+
+.address-card{
+    width: 100%;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.address-card-img{
+    width: 52px;
+    height: 52px;
+    background-color: #fff;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.address-card-text{
+    width: 120px;
+    height: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 8;
+}
+
+.address-card-text h1{
+    font-size: 10px;
+    color: #fff;
+}
+.address-card-text p{
+    font-size: 14px;
+    color: #fff;
+}
+
+.comment{
+    width: 954px;
+    height: 325px;
+    background-color: #FEEDFF;
+    border-radius: 35px;
+    padding: 40px;  
+}
+
+.comment-title{
+    width: 100%;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+}
+
+.comment-title h1{
+    font-size: 20px;
+    color: #39342F;
+}
+
+.comment-title p{
+    font-size: 14px;
+    color: #8E8E8E;
+}
+
+.inputs{
+    width: 100%;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+#text{
+    width: 427px;
+    height: 46px;
+    border-radius: 24px;
+    background-color: #fff;
+    padding: 16px;
+    border: none;
+    outline: none;
+}
+#text::placeholder{
+    font-size: 12px;
+    color: #C2C2C2;
+}
+#email{
+    width: 427px;
+    height: 46px;
+    border-radius: 24px;
+    background-color: #fff;
+    padding: 16px;
+    border: none;
+    outline: none;
+}
+#email::placeholder{
+    font-size: 12px;
+    color: #C2C2C2;
+}
+
+.message{
+    width: 874px;
+    height: 135px;
+    position: relative;
+}
+
+#message{
+    width: 100%;
+    height: 100%;
+    border-radius: 24px;
+    background-color: #fff;
+    border: none;
+    outline: none;
+    padding: 16px;
+}
+
+#message::placeholder{
+    font-size: 12px;
+    color: #C2C2C2;
+}
+
+#submit{
+    width: 135px;
+    height: 42px;
+    border-radius: 16px;
+    background-color: #AC3DEB;
+    color: #fff;
+    font-size: 14px;
+    position: absolute;
+    bottom: 18px;
+    left: 18px;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+.map{
+    max-width: 1280px;
+    height: 401px;
+    border-radius: 32px;
+    background-color: #C2C2C2;
+    margin: auto;
+    margin-bottom: 50px;
+    overflow: hidden;
+}
+
+
+
+
+@media screen and (max-width:768px) {
+    .contactus-container{
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+    }
+
+    .comment{
+        width: 100%;
+        height: auto;
+    }
+
+    .comment-title{
+        width: 100%;
+        height: auto;
+    }
+
+    .inputs{
+        width: 100%;
+        height: auto;
+    }
+
+    #text{
+        width: 163px;
+        height: 40px;
+    }
+    #email{
+        width: 163px;
+        height: 40px;
+    }
+
+    .message{
+        width: 100%;
+        height: 135px;
+    }
+
+    #submit{
+        width: 98px;
+        height: 36px;
+        font-size: 12px;
+    }
+}
