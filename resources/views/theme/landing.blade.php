@@ -919,27 +919,29 @@
                 </div>
 
                 <div class="row g-4" id="doctorList">
-                    @foreach($doctors as $doctor)
+                    @forelse($landingDoctors as $doctor)
                         <div class="col-sm-6 col-xl-3 doctor-item">
-                            <div class="doctor-card p-3 h-100">
+                            <a href="{{ route('theme.single-docter', $doctor->slug) }}" class="doctor-card p-3 h-100 d-block">
                                 <div class="d-flex align-items-center gap-3">
                                     <div class="doctor-avatar">
                                         <i class="bi bi-person-fill"></i>
                                     </div>
 
                                     <div class="flex-grow-1">
-                                        <h6 class="mb-1 fw-bold doctor-name">{{ $doctor['name'] }}</h6>
-                                        <div class="text-secondary small doctor-specialty">{{ $doctor['specialty'] }}</div>
+                                        <h6 class="mb-1 fw-bold doctor-name">{{ $doctor->name }}</h6>
+                                        <div class="text-secondary small doctor-specialty">{{ $doctor->specialty }}</div>
                                     </div>
 
                                     <span class="rating-badge">
                                         <i class="bi bi-star-fill ms-1"></i>
-                                        {{ $doctor['rate'] }}
+                                        {{ number_format((float) ($doctor->rating ?? 4.5), 1) }}
                                     </span>
                                 </div>
-                            </div>
+                            </a>
                         </div>
-                    @endforeach
+                    @empty
+                        <p class="text-muted text-center">پزشکی ثبت نشده است.</p>
+                    @endforelse
                 </div>
             </div>
         </section>
@@ -953,44 +955,48 @@
                         مقالات وبسایت
                     </span>
                     <h2>مطالب آموزشی و کاربردی برای والدین و کودکان</h2>
-                    <p>مقالات بر اساس موضوع دسته‌بندی شده‌اند تا سریع‌تر به محتوای موردنیاز خود برسید.</p>
+                    <p>دسته‌بندی‌های زیر به‌صورت داینامیک از پنل مدیریت خوانده می‌شوند.</p>
                 </div>
 
                 <ul class="nav nav-pills custom-pills" id="blogTab" role="tablist">
-                    @foreach($blogTabs as $key => $tab)
+                    @forelse($landingArticleCategories as $category)
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link {{ $loop->first ? 'active' : '' }}"
-                                    id="{{ $key }}-tab"
-                                    data-bs-toggle="pill"
-                                    data-bs-target="#{{ $key }}"
-                                    type="button"
-                                    role="tab">
-                                {{ $tab }}
+                            <button class="nav-link {{ $loop->first ? 'active' : '' }}" id="cat-{{ $category->slug }}-tab" data-bs-toggle="pill" data-bs-target="#cat-{{ $category->slug }}" type="button" role="tab">
+                                {{ $category->name }}
                             </button>
                         </li>
-                    @endforeach
+                    @empty
+                        <li class="text-muted">دسته‌بندی مقاله‌ای ثبت نشده است.</li>
+                    @endforelse
                 </ul>
 
                 <div class="tab-content">
-                    @foreach($blogs as $key => $items)
-                        <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}" id="{{ $key }}" role="tabpanel">
+                    @foreach($landingArticleCategories as $category)
+                        @php
+                            $items = $landingArticles->filter(function ($article) use ($category) {
+                                if (!$article->category) {
+                                    return false;
+                                }
+                                return $article->category->id === $category->id || $article->category->parent_id === $category->id;
+                            })->take(3);
+                        @endphp
+
+                        <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}" id="cat-{{ $category->slug }}" role="tabpanel">
                             <div class="row g-4">
-                                @foreach($items as $blog)
+                                @forelse($items as $blog)
                                     <div class="col-md-6 col-xl-4">
                                         <div class="blog-card p-3 h-100">
-                                            <img src="{{ $blog['image'] }}" class="blog-thumb mb-4" alt="{{ $blog['title'] }}">
-                                            <h5 class="fw-bold mb-3">{{ $blog['title'] }}</h5>
-
+                                            <img src="{{ $blog->image_path ? asset('storage/'.$blog->image_path) : asset('theme/assets/images/blog-card.png') }}" class="blog-thumb mb-4" alt="{{ $blog->title }}">
+                                            <h5 class="fw-bold mb-3">{{ $blog->title }}</h5>
                                             <div class="d-flex align-items-end justify-content-between gap-3">
-                                                <p class="text-secondary mb-0 lh-lg">{{ $blog['desc'] }}</p>
-
-                                                <a href="#" class="icon-btn flex-shrink-0">
-                                                    <i class="bi bi-arrow-left"></i>
-                                                </a>
+                                                <p class="text-secondary mb-0 lh-lg">{{ $blog->excerpt ?: \Illuminate\Support\Str::limit(strip_tags($blog->content), 90) }}</p>
+                                                <a href="{{ route('theme.single-blog', $blog->slug) }}" class="icon-btn flex-shrink-0"><i class="bi bi-arrow-left"></i></a>
                                             </div>
                                         </div>
                                     </div>
-                                @endforeach
+                                @empty
+                                    <p class="text-muted">در این دسته هنوز مقاله‌ای وجود ندارد.</p>
+                                @endforelse
                             </div>
                         </div>
                     @endforeach
@@ -1124,55 +1130,43 @@
                     <div class="row align-items-start g-4">
                         <div class="col-lg-3">
                             <div class="section-title mb-0">
-                                <span class="badge-title">
-                                    <i class="bi bi-bag-heart-fill"></i>
-                                    محصولات منتخب
-                                </span>
+                                <span class="badge-title"><i class="bi bi-bag-heart-fill"></i> محصولات منتخب</span>
                                 <h2>پیشنهادهای ویژه برای کودک</h2>
-                                <p class="mb-4">
-                                    مجموعه‌ای از محصولات کاربردی و محبوب که می‌توانید سریع‌تر بررسی و خریداری کنید.
-                                </p>
-                                <a href="#" class="btn-theme d-inline-block">مشاهده همه</a>
+                                <p class="mb-4">این بخش هم به‌صورت داینامیک از پنل مدیریت محصولات پر می‌شود.</p>
+                                <a href="{{ route('theme.products') }}" class="btn-theme d-inline-block">مشاهده همه</a>
                             </div>
                         </div>
 
                         <div class="col-lg-9">
                             <div class="d-flex justify-content-end gap-2 mb-3">
-                                <button class="icon-btn" type="button" onclick="scrollTrack('productsTrack', -340)">
-                                    <i class="bi bi-arrow-right"></i>
-                                </button>
-                                <button class="icon-btn" type="button" onclick="scrollTrack('productsTrack', 340)">
-                                    <i class="bi bi-arrow-left"></i>
-                                </button>
+                                <button class="icon-btn" type="button" onclick="scrollTrack('productsTrack', -340)"><i class="bi bi-arrow-right"></i></button>
+                                <button class="icon-btn" type="button" onclick="scrollTrack('productsTrack', 340)"><i class="bi bi-arrow-left"></i></button>
                             </div>
 
                             <div class="scroll-track" id="productsTrack">
-                                @foreach($products as $product)
+                                @forelse($landingProducts as $product)
                                     <div class="product-card p-4">
-                                        <img src="{{ $product['image'] }}" class="product-thumb mb-3" alt="{{ $product['title'] }}">
-
+                                        <img src="{{ $product->image_path ? asset('storage/'.$product->image_path) : asset('theme/assets/images/16 1.png') }}" class="product-thumb mb-3" alt="{{ $product->name }}">
                                         <div class="d-flex align-items-center justify-content-between mb-2 gap-2">
-                                            <h5 class="mb-0 fw-bold">{{ $product['title'] }}</h5>
-                                            <span class="rating-badge">
-                                                <i class="bi bi-star-fill ms-1"></i>
-                                                {{ $product['rate'] }}
-                                            </span>
+                                            <h5 class="mb-0 fw-bold">{{ $product->name }}</h5>
+                                            <span class="rating-badge"><i class="bi bi-star-fill ms-1"></i>{{ number_format((float) ($product->rating ?? 4.5), 1) }}</span>
                                         </div>
-
-                                        <p class="text-secondary lh-lg mb-4">{{ $product['desc'] }}</p>
-
+                                        <p class="text-secondary lh-lg mb-4">{{ $product->short_description ?: \Illuminate\Support\Str::limit(strip_tags($product->description), 80) }}</p>
                                         <div class="d-flex align-items-center justify-content-between gap-3 mt-auto">
-                                            <button class="add-cart" type="button">
-                                                <i class="bi bi-bag-plus"></i>
-                                            </button>
-
+                                            <a class="add-cart" href="{{ route('theme.single-product', $product->slug) }}"><i class="bi bi-bag-plus"></i></a>
                                             <div class="text-end">
-                                                <div class="old-price">{{ $product['old_price'] }}</div>
-                                                <div class="new-price">{{ $product['price'] }}</div>
+                                                @if($product->discount_price)
+                                                    <div class="old-price">{{ number_format((float) $product->price) }} تومان</div>
+                                                    <div class="new-price">{{ number_format((float) $product->discount_price) }} تومان</div>
+                                                @else
+                                                    <div class="new-price">{{ number_format((float) $product->price) }} تومان</div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
-                                @endforeach
+                                @empty
+                                    <p class="text-muted">محصولی ثبت نشده است.</p>
+                                @endforelse
                             </div>
                         </div>
                     </div>
