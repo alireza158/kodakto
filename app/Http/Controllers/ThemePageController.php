@@ -13,7 +13,11 @@ class ThemePageController extends Controller
 {
     public function landing(): View
     {
-        return view('theme.landing');
+        $landingArticles = Article::query()->with('category')->latest('published_at')->latest('id')->limit(8)->get();
+        $landingProducts = Product::query()->with('categoryRelation')->where('is_active', true)->latest('published_at')->latest('id')->limit(8)->get();
+        $landingArticleCategories = ArticleCategory::query()->whereNull('parent_id')->orderBy('name')->get();
+
+        return view('theme.landing', compact('landingArticles', 'landingProducts', 'landingArticleCategories'));
     }
 
     public function products(Request $request): View
