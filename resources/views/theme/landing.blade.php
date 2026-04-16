@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="{{ asset('theme') }}/">
+    <link rel="stylesheet" href="assets/css/owl.carousel.css">
+    <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="assets/css/all.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/landing.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <title>Document</title>
+</head>
+<body>
+    <header class="header">
+        <div class="logo"><img src="assets/images/کودکتو.png" alt=""></div>
+
+        <div class="burger-menu">
+            <img src="assets/images/Hamburger Menu.png" alt="">
+        </div>
+        <div class="nav">
+            <ul class="nav-items">
+                <ol>
+                    <a href="">
+                        <div class="item-logo"><img src="assets/images/home 04.png" alt=""></div>
+                        <h3 class="active">خانه</h3>
+                    </a>
+                </ol>
+                <ol>
+                    <a href="">
+                        <div class="item-logo"><img src="assets/images/reward.png" alt=""></div>
+                        <h3>پیشنهاد ویژه</h3>
+                    </a>
+                </ol>
+                <ol>
+                    <a href="">
+                        <div class="item-logo"><img src="assets/images/store.png" alt=""></div>
+                        <h3>درباره‌ما</h3>
+                    </a>
+                </ol>
+                <ol>
+                    <a href="">
+                        <div class="item-logo"><img src="assets/images/receipt.png" alt=""></div>
+                        <h3>وبلاگ</h3>
+                    </a>
+                </ol>
+                <ol>
+                    <a href="">
+                        <div class="item-logo"><img src="assets/images/shopping basket 02.png" alt=""></div>
+                        <h3>محصولات</h3>
+                    </a>
+                </ol>
+            </ul>
+        </div>
+        <div class="search">
+            <input type="search" id="search" placeholder="محصول مورد نطر را جستجو کنید">
+            <div class="search-logo"><img src="assets/images/search 01.svg" alt=""></div>
+        </div>
+    </header>
+
+    <main>
+        <section class="big-banner-container">
+            <div class="big-banner-image"></div>
+            <div class="big-banner-item">
+                <div class="bb-item">
+                    <div class="bb-img"></div>
+                    <span>نوزاد تا 1 سالگی</span>
+                </div>
+                <div class="bb-item">
+                    <div class="bb-img"></div>
+                    <span>1 تا 2 سالگی</span>
+                </div>
+                <div class="bb-item">
+                    <div class="bb-img"></div>
+                    <span>2 تا 3 سالگی</span>
+                </div>
+                <div class="bb-item">
+                    <div class="bb-img"></div>
+                    <span>3 تا 5 سالگی</span>
+                </div>
+                <div class="bb-item">
+                    <div class="bb-img"></div>
+                    <span>6 تا 8 سالگی</span>
+                </div>
+                <div class="bb-item">
+                    <div class="bb-img"></div>
+                    <span>9 تا 11 سالگی</span>
+                </div>
+                <div class="bb-item">
+                    <div class="bb-img"></div>
+                    <span>12 تا 14 سالگی</span>
+                </div>
+                <div class="bb-item">
+                    <div class="bb-img"></div>
+                    <span>15 تا 17 سالگی</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section2">
+            <div class="section2-banner">
+                <img src="assets/images/section2 image1.png" alt="">
+                <div class="banner-shadow"></div>
+                <div class="banner-foot">
+                    <span>خلاقیت کودکان</span>
+                    <img src="assets/images/Vector 174.svg" alt="">
+                </div>
+            </div>
+            <div class="section2-banner">
+                <img src="assets/images/section2 image2.png" alt="">
+                <div class="banner-shadow"></div>
+                <div class="banner-foot">
+                    <span>خانواده کودکان</span>
+                    <img src="assets/images/Vector 174.svg" alt="">
+                </div>
+            </div>
+            <div class="section2-banner">
+                <img src="assets/images/section2 image3.png" alt="">
+                <div class="banner-shadow"></div>
+                <div class="banner-foot">
+                    <span>اختلاتات یادگیری</span>
+                    <img src="assets/images/Vector 174.svg" alt="">
+                </div>
+            </div>
+            <div class="section2-banner">
+                <img src="assets/images/section2 image4.png" alt="">
+                <div class="banner-shadow"></div>
+                <div class="banner-foot">
+                    <span>پزشک کودکان</span>
+                    <img src="assets/images/Vector 174.svg" alt="">
+                </div>
+            </div>
+        </section>
+
+        <!-- <section class="docters-container">
+            <div class="docters-head">
+                <h1>برترین پزشکان</h1>
+                <img src="assets/images/Star 6.png" alt="">
+                <div class="docters-information">
+                    <div class="docters-search">
+                        <div class="choose-city">
+                            <img class="location" src="assets/images/location 03.svg" alt="">
+                            <span>انتخاب شهر</span>
+                            <img class="vector" src="assets/images/Vector 175.svg" alt="">
+                        </div>
+                        <img src="assets/images/search 01.svg" alt="">
+                        <input type="search" id="search" placeholder="نام پزشک، تخصص و...">
+                    </div>
+                    <div class="docters-popup">
+                        <span>پزشک کودکان</span>
+                        <img src="assets/images/Vector svg.svg" alt="">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="doctors-name">
+                <div class="docters-item">
+                    <div class="docter-image">
+                        <img src="assets/images/user.svg" alt="">
+                    </div>
+                    <div class="docter-name">
+                        <h1>محمدحسین شاکری</h1>
+                        <span>متخصص کودکان</span>
+                    </div>
+                    <div class="docter-rating">
+                        <span>4.5</span>
+                        <img src="assets/images/Star 5.png" alt="">
+                    </div>
+                </div>
+
+                <div class="docters-item">
+                    <div class="docter-image">
+                        <img src="assets/images/user.svg" alt="">
+                    </div>
+                    <div class="docter-name">
+                        <h1>محمدحسین شاکری</h1>
+                        <span>متخصص کودکان</span>
+                    </div>
+                    <div class="docter-rating">
+                        <span>4.5</span>
+                        <img src="assets/images/Star 5.png" alt="">
+                    </div>
+                </div>
+
+                <div class="docters-item">
+                    <div class="docter-image">
+                        <img src="assets/images/user.svg" alt="">
+                    </div>
+                    <div class="docter-name">
+                        <h1>محمدحسین شاکری</h1>
+                        <span>متخصص کودکان</span>
+                    </div>
+                    <div class="docter-rating">
+                        <span>4.5</span>
+                        <img src="assets/images/Star 5.png" alt="">
+                    </div>
+                </div>
+
+                <div class="docters-item">
+                    <div class="docter-image">
+                        <img src="assets/images/user.svg" alt="">
+                    </div>
+                    <div class="docter-name">
+                        <h1>محمدحسین شاکری</h1>
+                        <span>متخصص کودکان</span>
+                    </div>
+                    <div class="docter-rating">
+                        <span>4.5</span>
+                        <img src="assets/images/Star 5.png" alt="">
+                    </div>
+                </div>
+
+                <div class="docters-item">
+                    <div class="docter-image">
+                        <img src="assets/images/user.svg" alt="">
+                    </div>
+                    <div class="docter-name">
+                        <h1>محمدحسین شاکری</h1>
+                        <span>متخصص کودکان</span>
+                    </div>
+                    <div class="docter-rating">
+                        <span>4.5</span>
+                        <img src="assets/images/Star 5.png" alt="">
+                    </div>
+                </div>
+
+                <div class="docters-item">
+                    <div class="docter-image">
+                        <img src="assets/images/user.svg" alt="">
+                    </div>
+                    <div class="docter-name">
+                        <h1>محمدحسین شاکری</h1>
+                        <span>متخصص کودکان</span>
+                    </div>
+                    <div class="docter-rating">
+                        <span>4.5</span>
+                        <img src="assets/images/Star 5.png" alt="">
+                    </div>
+                </div>
+
+                <div class="docters-item">
+                    <div class="docter-image">
+                        <img src="assets/images/user.svg" alt="">
+                    </div>
+                    <div class="docter-name">
+                        <h1>محمدحسین شاکری</h1>
+                        <span>متخصص کودکان</span>
+                    </div>
+                    <div class="docter-rating">
+                        <span>4.5</span>
+                        <img src="assets/images/Star 5.png" alt="">
+                    </div>
+                </div>
+
+                <div class="docters-item">
+                    <div class="docter-image">
+                        <img src="assets/images/user.svg" alt="">
+                    </div>
+                    <div class="docter-name">
+                        <h1>محمدحسین شاکری</h1>
+                        <span>متخصص کودکان</span>
+                    </div>
+                    <div class="docter-rating">
+                        <span>4.5</span>
+                        <img src="assets/images/Star 5.png" alt="">
+                    </div>
+                </div>
+
+                <div class="docters-item">
+                    <div class="docter-image">
+                        <img src="assets/images/user.svg" alt="">
+                    </div>
+                    <div class="docter-name">
+                        <h1>محمدحسین شاکری</h1>
+                        <span>متخصص کودکان</span>
+                    </div>
+                    <div class="docter-rating">
+                        <span>4.5</span>
+                        <img src="assets/images/Star 5.png" alt="">
+                    </div>
+                </div>
+
+                <div class="docters-item">
+                    <div class="docter-image">
+                        <img src="assets/images/user.svg" alt="">
+                    </div>
+                    <div class="docter-name">
+                        <h1>محمدحسین شاکری</h1>
+                        <span>متخصص کودکان</span>
+                    </div>
+                    <div class="docter-rating">
+                        <span>4.5</span>
+                        <img src="assets/images/Star 5.png" alt="">
+                    </div>
+                </div>
+
+                <div class="docters-item">
+                    <div class="docter-image">
+                        <img src="assets/images/user.svg" alt="">
+                    </div>
+                    <div class="docter-name">
+                        <h1>محمدحسین شاکری</h1>
+                        <span>متخصص کودکان</span>
+                    </div>
+                    <div class="docter-rating">
+                        <span>4.5</span>
+                        <img src="assets/images/Star 5.png" alt="">
+                    </div>
+                </div>
+
+                <div class="docters-item">
+                    <div class="docter-image">
+                        <img src="assets/images/user.svg" alt="">
+                    </div>
+                    <div class="docter-name">
+                        <h1>محمدحسین شاکری</h1>
+                        <span>متخصص کودکان</span>
+                    </div>
+                    <div class="docter-rating">
+                        <span>4.5</span>
+                        <img src="assets/images/Star 5.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+        <section class="blog">
+            <h1 class="blog-title"><b>مقالات وبسایت</b></h1>
+            <div class="blog-item">
+                <div class="blog-card blog-card-active blog-card1"><span>اختلالات یادگیری</span></div>
+                <div class="blog-card blog-card2"><span>خلاقیت</span></div>
+                <div class="blog-card blog-card3"><span>بازی</span></div>
+                <div class="blog-card blog-card4"><span>کاردستی</span></div>
+            </div>
+
+            <div class="blog-slide blog-item1">
+                <div class="owl-carousel owl-one owl-theme">
+                    <div class="item blog-cardslide">
+                        <img src="assets/images/blog-card.png" alt="">
+                        <h1>دیر یادگرفتن مطالب توسط کودکان</h1>
+                        <div class="card-foot">
+                            <p>لورم اپیسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است...</p>
+    
+                            <div class="submit-card">
+                                <img src="assets/images/direction-left.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="blog-slide blog-item2">
+                <div class="owl-carousel owl-one owl-theme">
+                    <div class="item blog-cardslide">
+                        <img src="assets/images/blog-card.png" alt="">
+                        <h1>دیر یادگرفتن مطالب توسط کودکان</h1>
+                        <div class="card-foot">
+                            <p>لورم اپیسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است...</p>
+    
+                            <div class="submit-card">
+                                <img src="assets/images/direction-left.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="blog-slide blog-item3">
+                <div class="owl-carousel owl-one owl-theme">
+                    <div class="item blog-cardslide">
+                        <img src="assets/images/blog-card.png" alt="">
+                        <h1>دیر یادگرفتن مطالب توسط کودکان</h1>
+                        <div class="card-foot">
+                            <p>لورم اپیسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است...</p>
+    
+                            <div class="submit-card">
+                                <img src="assets/images/direction-left.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="blog-slide blog-item4">
+                <div class="owl-carousel owl-one owl-theme">
+                    <div class="item blog-cardslide">
+                        <img src="assets/images/blog-card.png" alt="">
+                        <h1>دیر یادگرفتن مطالب توسط کودکان</h1>
+                        <div class="card-foot">
+                            <p>لورم اپیسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است...</p>
+    
+                            <div class="submit-card">
+                                <img src="assets/images/direction-left.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="child-container">
+            <div class="child-head">
+                <h1>تفریح کودکان</h1>
+                <img src="assets/images/Star 6.png" alt="">
+                <div class="child-information">
+                    <div class="child-search">
+                        <div class="choose-city">
+                            <img class="location" src="assets/images/location 03.svg" alt="">
+                            <span>فیلترها</span>
+                            <img class="vector" src="assets/images/Vector 175.svg" alt="">
+                        </div>
+                        <img src="assets/images/search 01.svg" alt="">
+                        <input type="search" id="search" placeholder="جستجو مکان مورد نظر">
+                    </div>
+                    <div class="child-btns">
+                        <div class="chide-btns-next">
+                            <img src="assets/images/direction-right 01.png" alt="">
+                        </div>
+                        <div class="chide-btns-prev">
+                            <img src="assets/images/direction-left 01.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="location-box">
+                <div class="owl-carousel owl-two owl-theme">
+
+                    <div class="item location-card">
+                        <img src="assets/images/park.png" alt="">
+                        <div class="park-information">
+                            <h1>شهر بازی پارک ارم</h1>
+                            <div class="park-loc">
+                                <img src="assets/images/location 03.png" alt="">
+                                <span>تهران</span>
+                            </div>
+                        </div>
+                        <div class="park-btn"><span>بزن بریم!</span></div>
+                    </div>
+                    <div class="location-card">
+                        <img src="assets/images/park.png" alt="">
+                        <div class="park-information">
+                            <h1>شهر بازی پارک ارم</h1>
+                            <div class="park-loc">
+                                <img src="assets/images/location 03.png" alt="">
+                                <span>تهران</span>
+                            </div>
+                        </div>
+                        <div class="park-btn"><span>بزن بریم!</span></div>
+                    </div>
+                    <div class="location-card">
+                        <img src="assets/images/park.png" alt="">
+                        <div class="park-information">
+                            <h1>شهر بازی پارک ارم</h1>
+                            <div class="park-loc">
+                                <img src="assets/images/location 03.png" alt="">
+                                <span>تهران</span>
+                            </div>
+                        </div>
+                        <div class="park-btn"><span>بزن بریم!</span></div>
+                    </div>
+                    <div class="location-card">
+                        <img src="assets/images/park.png" alt="">
+                        <div class="park-information">
+                            <h1>شهر بازی پارک ارم</h1>
+                            <div class="park-loc">
+                                <img src="assets/images/location 03.png" alt="">
+                                <span>تهران</span>
+                            </div>
+                        </div>
+                        <div class="park-btn"><span>بزن بریم!</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="question">
+            <h1><span style="color: #39342F;">سوالات </span>متداول ؟</h1>
+            <div class="question-group">
+                <div class="accordian">
+                    <div class="accordian-card acc1">
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <span>آیا این دوره پیش نیاز دارید؟</span>
+                            <img src="assets/images/direction-left 01.svg" alt="">
+                        </div>
+
+                        <div class="accordian-answer1">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, voluptates sed? Soluta architecto dolorum rerum animi nihil ducimus. Ex dicta deserunt, sunt quo dignissimos quod? A minus sit delectus eius vel, corrupti dicta, nihil tenetur illum culpa animi obcaecati fugiat ea suscipit quisquam sequi sint corporis blanditiis iste placeat distinctio, unde dolorem maxime. Cum, nesciunt voluptates porro recusandae accusamus repudiandae, accusantium voluptate quod numquam ipsum, animi praesentium officia eligendi? Sequi minus consequuntur unde earum architecto esse in, totam consequatur et, laudantium neque temporibus! Officia dolores, non aperiam tenetur est animi debitis quisquam, alias ab laboriosam fugit amet totam maxime inventore.</p>
+                        </div>
+                    </div>
+                    <div class="accordian-card acc2">
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <span>آیا این دوره پیش نیاز دارید؟</span>
+                            <img src="assets/images/direction-left 01.svg" alt="">
+                        </div>
+
+                        <div class="accordian-answer2">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, voluptates sed? Soluta architecto dolorum rerum animi nihil ducimus. Ex dicta deserunt, sunt quo dignissimos quod? A minus sit delectus eius vel, corrupti dicta, nihil tenetur illum culpa animi obcaecati fugiat ea suscipit quisquam sequi sint corporis blanditiis iste placeat distinctio, unde dolorem maxime. Cum, nesciunt voluptates porro recusandae accusamus repudiandae, accusantium voluptate quod numquam ipsum, animi praesentium officia eligendi? Sequi minus consequuntur unde earum architecto esse in, totam consequatur et, laudantium neque temporibus! Officia dolores, non aperiam tenetur est animi debitis quisquam, alias ab laboriosam fugit amet totam maxime inventore.</p>
+                        </div>
+                    </div>
+                    <div class="accordian-card acc3">
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <span>آیا این دوره پیش نیاز دارید؟</span>
+                            <img src="assets/images/direction-left 01.svg" alt="">
+                        </div>
+
+                        <div class="accordian-answer3">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, voluptates sed? Soluta architecto dolorum rerum animi nihil ducimus. Ex dicta deserunt, sunt quo dignissimos quod? A minus sit delectus eius vel, corrupti dicta, nihil tenetur illum culpa animi obcaecati fugiat ea suscipit quisquam sequi sint corporis blanditiis iste placeat distinctio, unde dolorem maxime. Cum, nesciunt voluptates porro recusandae accusamus repudiandae, accusantium voluptate quod numquam ipsum, animi praesentium officia eligendi? Sequi minus consequuntur unde earum architecto esse in, totam consequatur et, laudantium neque temporibus! Officia dolores, non aperiam tenetur est animi debitis quisquam, alias ab laboriosam fugit amet totam maxime inventore.</p>
+                        </div>
+                    </div>
+                    <div class="accordian-card acc4">
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <span>آیا این دوره پیش نیاز دارید؟</span>
+                            <img src="assets/images/direction-left 01.svg" alt="">
+                        </div>
+
+                        <div class="accordian-answer4">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, voluptates sed? Soluta architecto dolorum rerum animi nihil ducimus. Ex dicta deserunt, sunt quo dignissimos quod? A minus sit delectus eius vel, corrupti dicta, nihil tenetur illum culpa animi obcaecati fugiat ea suscipit quisquam sequi sint corporis blanditiis iste placeat distinctio, unde dolorem maxime. Cum, nesciunt voluptates porro recusandae accusamus repudiandae, accusantium voluptate quod numquam ipsum, animi praesentium officia eligendi? Sequi minus consequuntur unde earum architecto esse in, totam consequatur et, laudantium neque temporibus! Officia dolores, non aperiam tenetur est animi debitis quisquam, alias ab laboriosam fugit amet totam maxime inventore.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="question-image">
+                    <img src="assets/images/Group 238045.png" alt="">
+                </div>
+            </div>
+        </section>
+
+        <section class="products">
+            <div class="product-information">
+                <img style="margin-top: 25px; margin-bottom: 10px;" src="assets/images/Group text.png" alt="">
+                <p>لورم اپیسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان</p>
+                <button class="product-btn">مشاهده همه</button>
+            </div>
+
+            <div class="owl-carousel owl-three owl-theme owl-css">
+                <div class="item product-card">
+                    <img src="assets/images/16 1.png" alt="">
+                    <div class="product-card-title">
+                        <h1>شیشه شیر</h1>
+                        <span>4.5</span>
+                        <img src="assets/images/Star 5.png" alt="">
+                    </div>
+                    <p>این شیشه شیر از برند پینو میباشد...</p>
+                    <div class="product-price">
+                        <div class="add-product">
+                            <img src="assets/images/bag-add.png" alt="">
+                        </div>
+                        <div class="price">
+                            <span>260،000 تومان</span>
+                            <h1><span style="color: #AC3DEB; text-decoration: none; font-size: 15px;">200،000</span> تومان</h1>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="item product-card">
+                    <img src="assets/images/16 1.png" alt="">
+                    <div class="product-card-title">
+                        <h1>شیشه شیر</h1>
+                        <span>4.5</span>
+                        <img src="assets/images/Star 5.png" alt="">
+                    </div>
+                    <p>این شیشه شیر از برند پینو میباشد...</p>
+                    <div class="product-price">
+                        <div class="add-product">
+                            <img src="assets/images/bag-add.png" alt="">
+                        </div>
+                        <div class="price">
+                            <span>260،000 تومان</span>
+                            <h1><span style="color: #AC3DEB; text-decoration: none; font-size: 15px;">200،000</span> تومان</h1>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="item product-card">
+                    <img src="assets/images/16 1.png" alt="">
+                    <div class="product-card-title">
+                        <h1>شیشه شیر</h1>
+                        <span>4.5</span>
+                        <img src="assets/images/Star 5.png" alt="">
+                    </div>
+                    <p>این شیشه شیر از برند پینو میباشد...</p>
+                    <div class="product-price">
+                        <div class="add-product">
+                            <img src="assets/images/bag-add.png" alt="">
+                        </div>
+                        <div class="price">
+                            <span>260،000 تومان</span>
+                            <h1><span style="color: #AC3DEB; text-decoration: none; font-size: 15px;">200،000</span> تومان</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <footer>
+        <div class="foot-container">
+            <div class="footer-bio">
+                <img src="assets/images/لوگو.png" alt="">
+                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است...</p>
+            </div>
+            <div class="quik-access">
+                <div class="quik-title">
+                    <h1>دسترسی سریع</h1>
+                </div>
+                <div class="quik-item">
+                    <div class="quik-card">
+                        <div class="dot"></div>
+                        <span>خانه</span>
+                    </div>
+                    <div class="quik-card">
+                        <div class="dot"></div>
+                        <span>مقالات</span>
+                    </div>
+                    <div class="quik-card">
+                        <div class="dot"></div>
+                        <span>دوره ها</span>
+                    </div>
+                    <div class="quik-card">
+                        <div class="dot"></div>
+                        <span>فروشگاه</span>
+                    </div>
+                    <div class="quik-card">
+                        <div class="dot"></div>
+                        <span>درباره ما</span>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="contactus">
+                <div class="contactus-title">
+                    <h1>ارتباط با ما</h1>
+                </div>
+                <div class="contactus-item">
+                    <div class="contactus-card">
+                        <div class="dot"></div>
+                        <span>09056116431</span>
+                    </div>
+                    <div class="contactus-card">
+                        <div class="dot"></div>
+                        <span>kodakto@gmail.com</span>
+                    </div>
+                </div>
+                <div class="online-chat">
+                    <h1>چت آنلاین</h1>
+                    <div class="chat-btn">
+                        <img src="assets/images/left 01.png" alt="">
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="licence">
+                <div class="contactus-title">
+                    <h1>ارتباط با ما</h1>
+                </div>
+                <div class="licence-img">
+                    <img src="assets/images/تصویر-تاییدیه-زرین-پال-1 1.png" alt="">
+                    <img src="assets/images/تصویر-تاییدیه-زیبال 1.png" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-social">
+            <a href="">
+                <img src="assets/images/youtube.svg" alt="">
+            </a>
+            <a href="">
+                <img src="assets/images/telegram.svg" alt="">
+            </a>
+            <a href="">
+                <img src="assets/images/linkedln.svg" alt="">
+            </a>
+            <a href="">
+                <img src="assets/images/instagram.svg" alt="">
+            </a>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
