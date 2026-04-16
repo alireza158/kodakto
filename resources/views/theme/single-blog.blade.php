@@ -7,77 +7,68 @@
     <link rel="stylesheet" href="assets/css/all.css">
     <link rel="stylesheet" href="assets/css/header.css">
     <link rel="stylesheet" href="assets/css/single-blog.css">
-    <title>دیر یادگرفتن مطالب توسط کودکان</title>
+    <title>{{ $article->title }}</title>
 </head>
 <body>
-    @include('theme.partials.header')
+@include('theme.partials.header')
 
-    <main>
-        <h1 class="title">خانه | مقالات | <span>دیر یادگرفتن مطالب توسط کودکان</span></h1>
+<main>
+    <h1 class="title">
+        <a href="{{ route('theme.landing') }}">خانه</a> |
+        <a href="{{ route('theme.blog') }}">مقالات</a> |
+        <span>{{ $article->title }}</span>
+    </h1>
 
-        <section class="single-blog-container">
-            <div class="blog-information">
-                <img src="assets/images/Frame 1116606961.png" alt="دیر یادگرفتن مطالب توسط کودکان" class="blog-image">
-                <div class="title-one">
-                    <h1>دیر یاد گرفتن مطالب توسط کودکان</h1>
-                    <div class="time">
-                        <div class="date">
-                            <img src="assets/images/Calendar Minimalistic.svg" alt="">
-                            <span>5 مرداد 1403</span>
-                        </div>
-                        <div class="clock">
-                            <img src="assets/images/Clock.svg" alt="">
-                            <span>8 دقیقه</span>
-                        </div>
+    <section class="single-blog-container">
+        <div class="blog-information">
+            <img src="{{ $article->image_path ? asset('storage/'.$article->image_path) : asset('theme/assets/images/Frame 1116606961.png') }}" alt="{{ $article->title }}" class="blog-image">
+            <div class="title-one">
+                <h1>{{ $article->title }}</h1>
+                <div class="time">
+                    <div class="date">
+                        <img src="assets/images/Calendar Minimalistic.svg" alt="">
+                        <span>{{ optional($article->published_at)->format('Y/m/d') ?? $article->created_at->format('Y/m/d') }}</span>
                     </div>
-                </div>
-
-                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ...</p>
-
-                <h1 class="title-two">5 دلیل عدم یادگیری کودک شما:</h1>
-
-                <div class="paragraph">
-                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ...</p>
-                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ...</p>
-                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ...</p>
-                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ...</p>
+                    <div class="clock">
+                        <img src="assets/images/alarm.svg" alt="">
+                        <span>{{ max(1, (int) ceil(str_word_count(strip_tags($article->content)) / 180)) }} دقیقه</span>
+                    </div>
                 </div>
             </div>
 
-            <aside class="aside">
-                <div class="aside-title">
-                    <img src="assets/images/book.png" alt="مقالات جدید">
-                    <h1>جدیدترین مقالات</h1>
-                </div>
+            @if($article->excerpt)
+                <p>{{ $article->excerpt }}</p>
+            @endif
 
-                <div class="aside-card">
+            <div class="paragraph">{!! nl2br(e($article->content)) !!}</div>
+        </div>
+
+        <aside class="aside">
+            <div class="aside-title">
+                <img src="assets/images/book.png" alt="مقالات جدید">
+                <h1>جدیدترین مقالات</h1>
+            </div>
+
+            @forelse($latestArticles as $latestArticle)
+                <a class="aside-card" href="{{ route('theme.single-blog', $latestArticle->slug) }}">
                     <div class="card-image">
-                        <img src="assets/images/blog-card.png" alt="">
+                        <img src="{{ $latestArticle->image_path ? asset('storage/'.$latestArticle->image_path) : asset('theme/assets/images/blog-card.png') }}" alt="{{ $latestArticle->title }}">
                     </div>
                     <div class="card-text">
-                        <h1>دیر یادگرفتن مطالب توسط کودکان</h1>
-                        <p>لورم اپیسوم متن ساختگی با تولید سادگی نامفهوم...</p>
+                        <h1>{{ $latestArticle->title }}</h1>
+                        <p>{{ $latestArticle->excerpt ?: \Illuminate\Support\Str::limit(strip_tags($latestArticle->content), 60) }}</p>
                     </div>
-                </div>
+                </a>
+            @empty
+                <p>مقاله دیگری وجود ندارد.</p>
+            @endforelse
+        </aside>
+    </section>
+</main>
+@include('theme.partials.footer')
 
-                <div class="aside-card">
-                    <div class="card-image">
-                        <img src="assets/images/blog-card.png" alt="">
-                    </div>
-                    <div class="card-text">
-                        <h1>دیر یادگرفتن مطالب توسط کودکان</h1>
-                        <p>لورم اپیسوم متن ساختگی با تولید سادگی نامفهوم...</p>
-                    </div>
-                </div>
-
-                <!-- Additional Cards as needed -->
-            </aside>
-        </section>
-    </main>
-    @include('theme.partials.footer')
-
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/owl.carousel.min.js"></script>
-    <script src="assets/js/main.js"></script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/owl.carousel.min.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>
