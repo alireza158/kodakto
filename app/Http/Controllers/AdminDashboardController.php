@@ -6,6 +6,7 @@ use App\Models\Article;
 use App\Models\ArticleCategory;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\Doctor;
 use Illuminate\View\View;
 
 class AdminDashboardController extends Controller
@@ -20,6 +21,7 @@ class AdminDashboardController extends Controller
         $productCategoriesCount = ProductCategory::query()->count();
         $latestArticles = Article::query()->latest('published_at')->latest('id')->limit(5)->get();
         $latestProducts = Product::query()->latest('published_at')->latest('id')->limit(5)->get();
+        $totalDoctors = Doctor::query()->count();
 
         return view('admin.dashboard', compact(
             'totalArticles',
@@ -29,7 +31,8 @@ class AdminDashboardController extends Controller
             'articleCategoriesCount',
             'productCategoriesCount',
             'latestArticles',
-            'latestProducts'
+            'latestProducts',
+            'totalDoctors'
         ));
     }
 }

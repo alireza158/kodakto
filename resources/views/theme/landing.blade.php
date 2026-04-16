@@ -844,7 +844,9 @@
                                     </div>
                                     <span>{{ $age }}</span>
                                 </div>
-                            @endforeach
+                            @empty
+                        <p class="text-muted text-center">پزشکی ثبت نشده است.</p>
+                    @endforelse
                         </div>
                     </div>
                 </div>
@@ -919,27 +921,29 @@
                 </div>
 
                 <div class="row g-4" id="doctorList">
-                    @foreach($doctors as $doctor)
+                    @forelse($landingDoctors as $doctor)
                         <div class="col-sm-6 col-xl-3 doctor-item">
-                            <div class="doctor-card p-3 h-100">
+                            <a href="{{ route('theme.single-docter', $doctor->slug) }}" class="doctor-card p-3 h-100 d-block">
                                 <div class="d-flex align-items-center gap-3">
                                     <div class="doctor-avatar">
                                         <i class="bi bi-person-fill"></i>
                                     </div>
 
                                     <div class="flex-grow-1">
-                                        <h6 class="mb-1 fw-bold doctor-name">{{ $doctor['name'] }}</h6>
-                                        <div class="text-secondary small doctor-specialty">{{ $doctor['specialty'] }}</div>
+                                        <h6 class="mb-1 fw-bold doctor-name">{{ $doctor->name }}</h6>
+                                        <div class="text-secondary small doctor-specialty">{{ $doctor->specialty }}</div>
                                     </div>
 
                                     <span class="rating-badge">
                                         <i class="bi bi-star-fill ms-1"></i>
-                                        {{ $doctor['rate'] }}
+                                        {{ number_format((float) ($doctor->rating ?? 4.5), 1) }}
                                     </span>
                                 </div>
-                            </div>
+                            </a>
                         </div>
-                    @endforeach
+                    @empty
+                        <p class="text-muted text-center">پزشکی ثبت نشده است.</p>
+                    @endforelse
                 </div>
             </div>
         </section>
@@ -995,9 +999,11 @@
                                 @empty
                                     <p class="text-muted">در این دسته هنوز مقاله‌ای وجود ندارد.</p>
                                 @endforelse
-                            </div>
+                            </a>
                         </div>
-                    @endforeach
+                    @empty
+                        <p class="text-muted text-center">پزشکی ثبت نشده است.</p>
+                    @endforelse
                 </div>
             </div>
         </section>

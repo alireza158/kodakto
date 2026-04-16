@@ -9,162 +9,52 @@
     <link rel="stylesheet" href="assets/css/all.css">
     <link rel="stylesheet" href="assets/css/header.css">
     <link rel="stylesheet" href="assets/css/single-docter.css">
-    <title>Document</title>
+    <title>{{ $doctor->name }}</title>
 </head>
 <body>
-    @include('theme.partials.header')
+@include('theme.partials.header')
 
-    <main>
-        <section class="single-docter-container">
-            <div class="aside">
-                <div class="content">
-                    <div class="docter-information">
-                        <img src="assets/images/doc.png" alt="">
-                        <div class="doc-text">
-                            <div class="doc-name">
-                                <h1>محمد حسین شاکری</h1>
-                                <p>متخصص کودکان</p>
-                                <span>بوشهر</span>
-                            </div>
-                            <div class="doc-ratting">
-                                <span>4.5</span>
-                                <img src="assets/images/Star 5.png" alt="">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="address">
-                        <img src="assets/images/location Vector.svg" alt="">
-                        <p>آدرس: بوشهر - بوشهر، میدان امام، جنب داروخانه دکتر بهمنش، ساختمان ملک، طبقه 3</p>
-                    </div>
-
-                    <div class="docter-services">
-                        <div class="service-one">
-                            <img src="assets/images/Subtract.png" alt="">
-                            <p>809 نوبت موفق</p>
-                        </div>
-                        <div class="service-two">
-                            <img src="assets/images/like.png" alt="">
-                            <p>90% پیشنهاد کاربران</p>
-                        </div>
-                        <div class="service-three">
-                            <img src="assets/images/smile.png" alt="">
-                            <p>کمترین معطلی</p>
-                        </div>
+<main>
+    <section class="single-docter-container">
+        <div class="aside">
+            <div class="content">
+                <div class="docter-information">
+                    <img src="{{ $doctor->image_path ? asset('storage/'.$doctor->image_path) : asset('theme/assets/images/doc.png') }}" alt="{{ $doctor->name }}">
+                    <div class="doc-text">
+                        <div class="doc-name"><h1>{{ $doctor->name }}</h1><p>{{ $doctor->specialty }}</p><span>{{ $doctor->city ?: '---' }}</span></div>
+                        <div class="doc-ratting"><span>{{ number_format((float)$doctor->rating,1) }}</span><img src="assets/images/Star 5.png" alt=""></div>
                     </div>
                 </div>
-
-                <div class="submit">
-                    <h1>همین الان نوبت بگیر!</h1>
-                    <div class="sub-btn">
-                        <span>رزرو نوبت</span>
-                    </div>
+                <div class="address"><img src="assets/images/location Vector.svg" alt=""><p>آدرس: {{ $doctor->address ?: 'ثبت نشده' }}</p></div>
+                <div class="docter-services">
+                    <div class="service-one"><img src="assets/images/Subtract.png" alt=""><p>{{ number_format($doctor->successful_appointments) }} نوبت موفق</p></div>
+                    <div class="service-two"><img src="assets/images/like.png" alt=""><p>{{ $doctor->recommendation_percent }}% پیشنهاد کاربران</p></div>
+                    <div class="service-three"><img src="assets/images/smile.png" alt=""><p>پزشک فعال</p></div>
                 </div>
             </div>
+            <div class="submit"><h1>همین الان نوبت بگیر!</h1><div class="sub-btn"><span>رزرو نوبت</span></div></div>
+        </div>
 
-
-            
-
-            <div class="comments">
-                <div class="comment-text">
-                    <h1>نطرات کاربران</h1>
-                    <div class="service-two">
-                        <img src="assets/images/like.png" alt="">
-                        <p>90% پیشنهاد کاربران</p>
-                    </div>
-                </div>
-
-                <div class="people-comment">
+        <div class="comments">
+            <div class="comment-text"><h1>درباره پزشک</h1><div class="service-two"><img src="assets/images/like.png" alt=""><p>{{ $doctor->recommendation_percent }}% پیشنهاد کاربران</p></div></div>
+            <div class="people-comment"><p class="people-text">{{ $doctor->bio ?: 'توضیحاتی برای این پزشک ثبت نشده است.' }}</p></div>
+            <div class="comment-text" style="margin-top:16px;"><h1>پزشکان دیگر</h1></div>
+            @forelse($otherDoctors as $item)
+                <a class="people-comment" href="{{ route('theme.single-docter', $item->slug) }}" style="display:block; text-decoration:none; color:inherit;">
                     <div class="people-information">
-                        <div class="user-img">
-                            <img src="assets/images/user.png" alt="">
-                        </div>
-                        <div class="people-name-conatiner">
-                            <div class="people-name">
-                                <h1>جواد آقایی</h1>
-                                <p>مراجعه کننده</p>
-                            </div>
-                            <div class="rating">
-                                <img src="assets/images/Star gray.png" alt="">
-                                <img src="assets/images/Star.png" alt="">
-                                <img src="assets/images/Star.png" alt="">
-                                <img src="assets/images/Star.png" alt="">
-                                <img src="assets/images/Star.png" alt="">
-                            </div>
-                        </div>
+                        <div class="user-img"><img src="{{ $item->image_path ? asset('storage/'.$item->image_path) : asset('theme/assets/images/user.png') }}" alt="{{ $item->name }}"></div>
+                        <div class="people-name-conatiner"><div class="people-name"><h1>{{ $item->name }}</h1><p>{{ $item->specialty }}</p></div><div class="rating"><img src="assets/images/Star.png" alt=""><span>{{ number_format((float)$item->rating,1) }}</span></div></div>
                     </div>
-                    <p class="people-text">بسیار با شخصیت و کاربلد هستند با تشخیص درست و به موقع و تجویز عالی به روند درمان من بسیار کمک کردند</p>
-                </div>
-                <div class="people-comment">
-                    <div class="people-information">
-                        <div class="user-img">
-                            <img src="assets/images/user.png" alt="">
-                        </div>
-                        <div class="people-name-conatiner">
-                            <div class="people-name">
-                                <h1>جواد آقایی</h1>
-                                <p>مراجعه کننده</p>
-                            </div>
-                            <div class="rating">
-                                <img src="assets/images/Star gray.png" alt="">
-                                <img src="assets/images/Star.png" alt="">
-                                <img src="assets/images/Star.png" alt="">
-                                <img src="assets/images/Star.png" alt="">
-                                <img src="assets/images/Star.png" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <p class="people-text">بسیار با شخصیت و کاربلد هستند با تشخیص درست و به موقع و تجویز عالی به روند درمان من بسیار کمک کردند</p>
-                </div>
-                <div class="people-comment">
-                    <div class="people-information">
-                        <div class="user-img">
-                            <img src="assets/images/user.png" alt="">
-                        </div>
-                        <div class="people-name-conatiner">
-                            <div class="people-name">
-                                <h1>جواد آقایی</h1>
-                                <p>مراجعه کننده</p>
-                            </div>
-                            <div class="rating">
-                                <img src="assets/images/Star gray.png" alt="">
-                                <img src="assets/images/Star.png" alt="">
-                                <img src="assets/images/Star.png" alt="">
-                                <img src="assets/images/Star.png" alt="">
-                                <img src="assets/images/Star.png" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <p class="people-text">بسیار با شخصیت و کاربلد هستند با تشخیص درست و به موقع و تجویز عالی به روند درمان من بسیار کمک کردند</p>
-                </div>
-                <div class="people-comment">
-                    <div class="people-information">
-                        <div class="user-img">
-                            <img src="assets/images/user.png" alt="">
-                        </div>
-                        <div class="people-name-conatiner">
-                            <div class="people-name">
-                                <h1>جواد آقایی</h1>
-                                <p>مراجعه کننده</p>
-                            </div>
-                            <div class="rating">
-                                <img src="assets/images/Star gray.png" alt="">
-                                <img src="assets/images/Star.png" alt="">
-                                <img src="assets/images/Star.png" alt="">
-                                <img src="assets/images/Star.png" alt="">
-                                <img src="assets/images/Star.png" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <p class="people-text">بسیار با شخصیت و کاربلد هستند با تشخیص درست و به موقع و تجویز عالی به روند درمان من بسیار کمک کردند</p>
-                </div>
-            </div>
-        </section>
-    </main>
+                </a>
+            @empty
+                <p>پزشک دیگری وجود ندارد.</p>
+            @endforelse
+        </div>
+    </section>
+</main>
 
-
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/owl.carousel.min.js"></script>
-    <script src="assets/js/main.js"></script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/owl.carousel.min.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>

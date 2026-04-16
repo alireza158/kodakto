@@ -24,8 +24,10 @@
                 <li class="nav-item"><a class="nav-link {{ request()->routeIs('admin.articles.*') ? 'active' : '' }}" href="{{ route('admin.articles.index') }}">مقاله‌ها</a></li>
                 <li class="nav-item"><a class="nav-link {{ request()->routeIs('admin.product-categories.*') ? 'active' : '' }}" href="{{ route('admin.product-categories.index') }}">دسته‌بندی محصولات</a></li>
                 <li class="nav-item"><a class="nav-link {{ request()->routeIs('admin.products.*') ? 'active' : '' }}" href="{{ route('admin.products.index') }}">محصولات</a></li>
+                <li class="nav-item"><a class="nav-link {{ request()->routeIs('admin.doctors.*') ? 'active' : '' }}" href="{{ route('admin.doctors.index') }}">پزشکان</a></li>
                 <li class="nav-item"><a class="nav-link {{ request()->routeIs('admin.articles.create') ? 'active' : '' }}" href="{{ route('admin.articles.create') }}">افزودن مقاله</a></li>
                 <li class="nav-item"><a class="nav-link {{ request()->routeIs('admin.products.create') ? 'active' : '' }}" href="{{ route('admin.products.create') }}">افزودن محصول</a></li>
+                <li class="nav-item"><a class="nav-link {{ request()->routeIs('admin.doctors.create') ? 'active' : '' }}" href="{{ route('admin.doctors.create') }}">افزودن پزشک</a></li>
             </ul>
         </aside>
 

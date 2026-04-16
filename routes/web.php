@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\ArticleAdminController;
 use App\Http\Controllers\ArticleCategoryAdminController;
+use App\Http\Controllers\DoctorAdminController;
 use App\Http\Controllers\ProductAdminController;
 use App\Http\Controllers\ProductCategoryAdminController;
 use App\Http\Controllers\ThemePageController;
@@ -16,7 +17,7 @@ Route::controller(ThemePageController::class)->group(function (): void {
         Route::get('/products', 'products')->name('products');
         Route::get('/single-product/{slug}', 'singleProduct')->name('single-product');
         Route::get('/search-docter', 'searchDocter')->name('search-docter');
-        Route::get('/single-docter', 'singleDocter')->name('single-docter');
+        Route::get('/single-docter/{slug}', 'singleDocter')->name('single-docter');
         Route::get('/blog', 'blog')->name('blog');
         Route::get('/single-blog/{slug}', 'singleBlog')->name('single-blog');
         Route::get('/vebinar', 'vebinar')->name('vebinar');
@@ -32,4 +33,5 @@ Route::prefix('admin')->name('admin.')->group(function (): void {
     Route::resource('product-categories', ProductCategoryAdminController::class)->except(['show']);
     Route::resource('articles', ArticleAdminController::class)->except(['show']);
     Route::resource('products', ProductAdminController::class)->except(['show']);
+    Route::resource('doctors', DoctorAdminController::class)->except(['show']);
 });

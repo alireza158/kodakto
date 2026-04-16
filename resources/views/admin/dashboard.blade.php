@@ -16,6 +16,7 @@
         <div class="col-md-6 col-xl-2"><div class="card border-0 shadow-sm"><div class="card-body"><p class="text-muted mb-2">کل محصولات</p><h2 class="mb-0">{{ $totalProducts }}</h2></div></div></div>
         <div class="col-md-6 col-xl-2"><div class="card border-0 shadow-sm"><div class="card-body"><p class="text-muted mb-2">دسته محصول</p><h2 class="mb-0">{{ $productCategoriesCount }}</h2></div></div></div>
         <div class="col-md-6 col-xl-2"><div class="card border-0 shadow-sm"><div class="card-body"><p class="text-muted mb-2">محصول فعال</p><h2 class="mb-0">{{ $activeProducts }}</h2></div></div></div>
+        <div class="col-md-6 col-xl-2"><div class="card border-0 shadow-sm"><div class="card-body"><p class="text-muted mb-2">کل پزشکان</p><h2 class="mb-0">{{ $totalDoctors }}</h2></div></div></div>
     </div>
 
     <div class="row g-3">
