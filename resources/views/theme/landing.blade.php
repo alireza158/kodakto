@@ -29,103 +29,6 @@
         ],
     ];
 
-    $doctors = [
-        ['name' => 'محمدحسین شاکری', 'specialty' => 'متخصص کودکان', 'rate' => '4.5'],
-        ['name' => 'زهرا موسوی', 'specialty' => 'روانشناس کودک', 'rate' => '4.8'],
-        ['name' => 'علی رضایی', 'specialty' => 'گفتار درمانگر', 'rate' => '4.6'],
-        ['name' => 'مریم احمدی', 'specialty' => 'متخصص رشد کودک', 'rate' => '4.7'],
-        ['name' => 'سارا کریمی', 'specialty' => 'متخصص کودکان', 'rate' => '4.4'],
-        ['name' => 'نیما توکلی', 'specialty' => 'کاردرمانگر کودک', 'rate' => '4.9'],
-        ['name' => 'فرشته بهرامی', 'specialty' => 'روانشناس کودک', 'rate' => '4.5'],
-        ['name' => 'امیرحسین صادقی', 'specialty' => 'متخصص کودکان', 'rate' => '4.6'],
-    ];
-
-    $blogTabs = [
-        'learning' => 'اختلالات یادگیری',
-        'creativity' => 'خلاقیت',
-        'play' => 'بازی',
-        'craft' => 'کاردستی',
-    ];
-
-    $blogs = [
-        'learning' => [
-            [
-                'title' => 'دیر یادگرفتن مطالب توسط کودکان',
-                'desc' => 'نشانه‌ها، دلایل و راهکارهای کاربردی برای شناسایی و کمک به کودکانی که در یادگیری کندتر عمل می‌کنند.',
-                'image' => asset('theme/assets/images/blog-card.png'),
-            ],
-            [
-                'title' => 'چطور مشکلات یادگیری را زودتر تشخیص دهیم؟',
-                'desc' => 'چند علامت مهم که والدین و مربیان باید در رفتار و روند یادگیری کودک به آن دقت کنند.',
-                'image' => asset('theme/assets/images/blog-card.png'),
-            ],
-            [
-                'title' => 'نقش والدین در درمان اختلالات یادگیری',
-                'desc' => 'همراهی درست خانواده می‌تواند روند بهبود کودک را سریع‌تر و کم‌تنش‌تر کند.',
-                'image' => asset('theme/assets/images/blog-card.png'),
-            ],
-        ],
-        'creativity' => [
-            [
-                'title' => 'چطور خلاقیت کودک را تقویت کنیم؟',
-                'desc' => 'فعالیت‌های ساده و مؤثر برای شکوفایی ذهن خلاق کودک در خانه و مدرسه.',
-                'image' => asset('theme/assets/images/blog-card.png'),
-            ],
-            [
-                'title' => 'بازی‌هایی که ذهن کودک را باز می‌کنند',
-                'desc' => 'بازی‌های هدفمند می‌توانند هم سرگرم‌کننده باشند و هم خلاقیت را افزایش دهند.',
-                'image' => asset('theme/assets/images/blog-card.png'),
-            ],
-            [
-                'title' => 'اشتباهات رایج در پرورش خلاقیت',
-                'desc' => 'گاهی برخی رفتارهای ناآگاهانه باعث محدود شدن قدرت تخیل در کودکان می‌شود.',
-                'image' => asset('theme/assets/images/blog-card.png'),
-            ],
-        ],
-        'play' => [
-            [
-                'title' => 'بهترین بازی‌های گروهی برای کودکان',
-                'desc' => 'بازی‌های گروهی به رشد مهارت‌های اجتماعی، اعتمادبه‌نفس و همکاری کودک کمک می‌کنند.',
-                'image' => asset('theme/assets/images/blog-card.png'),
-            ],
-            [
-                'title' => 'بازی درمانی چیست و چه کاربردی دارد؟',
-                'desc' => 'بازی‌درمانی یکی از روش‌های مؤثر برای درک احساسات و حل چالش‌های رفتاری کودکان است.',
-                'image' => asset('theme/assets/images/blog-card.png'),
-            ],
-            [
-                'title' => 'چطور زمان بازی مفید بسازیم؟',
-                'desc' => 'با چند روش ساده می‌توان زمان بازی کودک را هدفمندتر و باکیفیت‌تر کرد.',
-                'image' => asset('theme/assets/images/blog-card.png'),
-            ],
-        ],
-        'craft' => [
-            [
-                'title' => 'کاردستی‌های ساده و کم‌هزینه برای خانه',
-                'desc' => 'با چند وسیله ساده می‌توانید فعالیت‌هایی جذاب و آموزشی برای کودک بسازید.',
-                'image' => asset('theme/assets/images/blog-card.png'),
-            ],
-            [
-                'title' => 'کاردستی و تقویت مهارت دست‌ورزی',
-                'desc' => 'ساخت کاردستی می‌تواند هماهنگی چشم و دست و تمرکز کودک را تقویت کند.',
-                'image' => asset('theme/assets/images/blog-card.png'),
-            ],
-            [
-                'title' => 'ایده‌های جذاب کاردستی برای مهد و مدرسه',
-                'desc' => 'فعالیت‌هایی کاربردی که برای مربیان و والدین در مناسبت‌های مختلف مفید هستند.',
-                'image' => asset('theme/assets/images/blog-card.png'),
-            ],
-        ],
-    ];
-
-    $places = [
-        ['title' => 'شهر بازی پارک ارم', 'city' => 'تهران', 'image' => asset('theme/assets/images/park.png')],
-        ['title' => 'باغ کتاب کودکان', 'city' => 'تهران', 'image' => asset('theme/assets/images/park.png')],
-        ['title' => 'پارک ژوراسیک', 'city' => 'تهران', 'image' => asset('theme/assets/images/park.png')],
-        ['title' => 'خانه بازی رنگین‌کمان', 'city' => 'کرج', 'image' => asset('theme/assets/images/park.png')],
-        ['title' => 'دهکده بازی کودک', 'city' => 'اصفهان', 'image' => asset('theme/assets/images/park.png')],
-    ];
-
     $faqs = [
         [
             'q' => 'آیا این دوره پیش‌نیاز دارد؟',
@@ -145,39 +48,12 @@
         ],
     ];
 
-    $products = [
-        [
-            'title' => 'شیشه شیر',
-            'rate' => '4.5',
-            'desc' => 'این شیشه شیر از برند پینو می‌باشد و برای استفاده روزمره بسیار کاربردی است.',
-            'old_price' => '260,000 تومان',
-            'price' => '200,000 تومان',
-            'image' => asset('theme/assets/images/16 1.png'),
-        ],
-        [
-            'title' => 'پستانک سیلیکونی',
-            'rate' => '4.7',
-            'desc' => 'طراحی استاندارد، کیفیت مناسب و متریال ایمن برای استفاده کودک.',
-            'old_price' => '180,000 تومان',
-            'price' => '145,000 تومان',
-            'image' => asset('theme/assets/images/16 1.png'),
-        ],
-        [
-            'title' => 'سرلاک‌خوری',
-            'rate' => '4.6',
-            'desc' => 'مناسب تغذیه راحت‌تر کودک و ساخته‌شده از مواد اولیه باکیفیت.',
-            'old_price' => '210,000 تومان',
-            'price' => '169,000 تومان',
-            'image' => asset('theme/assets/images/16 1.png'),
-        ],
-        [
-            'title' => 'ظرف غذای کودک',
-            'rate' => '4.4',
-            'desc' => 'سبک، کاربردی و مناسب برای نگهداری و سرو غذای کودک.',
-            'old_price' => '230,000 تومان',
-            'price' => '189,000 تومان',
-            'image' => asset('theme/assets/images/16 1.png'),
-        ],
+    $places = [
+        ['title' => 'شهر بازی پارک ارم', 'city' => 'تهران', 'image' => asset('theme/assets/images/park.png')],
+        ['title' => 'باغ کتاب کودکان', 'city' => 'تهران', 'image' => asset('theme/assets/images/park.png')],
+        ['title' => 'پارک ژوراسیک', 'city' => 'تهران', 'image' => asset('theme/assets/images/park.png')],
+        ['title' => 'خانه بازی رنگین‌کمان', 'city' => 'کرج', 'image' => asset('theme/assets/images/park.png')],
+        ['title' => 'دهکده بازی کودک', 'city' => 'اصفهان', 'image' => asset('theme/assets/images/park.png')],
     ];
 @endphp
 
@@ -251,7 +127,7 @@
 
         .hero-section{
             padding-top: 40px;
-            padding-bottom: 120px;
+            padding-bottom: 70px;
         }
 
         .hero-box{
@@ -259,7 +135,6 @@
             border-radius: 40px;
             overflow: hidden;
             background: linear-gradient(135deg, #c85cfb 0%, #8d32c4 40%, #612385 100%);
-            min-height: 500px;
             box-shadow: var(--shadow-soft);
         }
 
@@ -274,7 +149,7 @@
         .hero-content{
             position: relative;
             z-index: 2;
-            padding: 60px 40px 170px;
+            padding: 60px 40px;
         }
 
         .hero-content h1{
@@ -286,16 +161,30 @@
         }
 
         .hero-content p{
-            color: rgba(255,255,255,.9);
+            color: rgba(255,255,255,.92);
             max-width: 560px;
             line-height: 2.1;
             margin-bottom: 1.75rem;
         }
 
+        .hero-badge{
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255,255,255,.16);
+            color: #fff;
+            border: 1px solid rgba(255,255,255,.18);
+            border-radius: 999px;
+            padding: .75rem 1rem;
+            margin-bottom: 1rem;
+            font-size: .92rem;
+            font-weight: 600;
+            backdrop-filter: blur(4px);
+        }
+
         .hero-actions .btn{
             border-radius: 999px;
             padding: .9rem 1.5rem;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .hero-visual{
@@ -305,7 +194,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 500px;
+            min-height: 100%;
         }
 
         .hero-image-box{
@@ -326,13 +215,8 @@
             display: block;
         }
 
-        .age-panel{
-            position: absolute;
-            right: 50%;
-            transform: translateX(50%);
-            bottom: -75px;
-            z-index: 5;
-            width: calc(100% - 60px);
+        .age-section-box{
+            margin-top: 28px;
             background: #fff;
             border-radius: 30px;
             padding: 24px;
@@ -355,6 +239,7 @@
             padding: 14px 16px;
             transition: .25s ease;
             cursor: pointer;
+            min-height: 84px;
         }
 
         .age-chip:hover,
@@ -380,7 +265,8 @@
         .age-chip span{
             font-size: .95rem;
             color: #6d6570;
-            font-weight: 600;
+            font-weight: 700;
+            line-height: 1.8;
         }
 
         .topic-card{
@@ -705,43 +591,15 @@
             .age-grid{
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
-
-            .hero-content{
-                padding-bottom: 190px;
-            }
         }
 
         @media (max-width: 991.98px){
-            .hero-content,
-            .hero-visual{
-                min-height: auto;
-            }
-
-            .hero-content{
-                padding: 40px 24px 210px;
-            }
-
-            .hero-visual{
-                padding: 0 24px 24px;
-            }
-
-            .age-panel{
-                width: calc(100% - 30px);
-                bottom: -120px;
-            }
-
             .section-space{
                 padding: 70px 0;
             }
-        }
-
-        @media (max-width: 767.98px){
-            .hero-box{
-                min-height: auto;
-            }
 
             .hero-content{
-                padding: 32px 18px 250px;
+                padding: 40px 24px;
                 text-align: center;
             }
 
@@ -750,24 +608,99 @@
             }
 
             .hero-actions{
-                justify-content: center !important;
+                justify-content: center;
+            }
+
+            .hero-visual{
+                padding: 0 24px 24px;
+            }
+
+            .age-section-box{
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 767.98px){
+            .hero-section{
+                padding-top: 24px;
+                padding-bottom: 50px;
+            }
+
+            .hero-box{
+                border-radius: 28px;
+            }
+
+            .hero-content{
+                padding: 30px 18px 18px;
+            }
+
+            .hero-content h1{
+                font-size: 1.8rem;
+                line-height: 1.8;
+            }
+
+            .hero-content p{
+                font-size: .95rem;
+                line-height: 2;
+            }
+
+            .hero-badge{
+                font-size: .82rem;
+                padding: .65rem .9rem;
+            }
+
+            .hero-actions .btn{
+                width: 100%;
             }
 
             .hero-visual{
                 padding: 0 18px 18px;
             }
 
-            .age-grid{
-                grid-template-columns: 1fr;
+            .hero-image-box{
+                padding: 14px;
+                border-radius: 24px;
             }
 
-            .age-panel{
+            .hero-image-box img{
+                border-radius: 18px;
+            }
+
+            .age-section-box{
+                margin-top: 20px;
                 padding: 16px;
-                bottom: -180px;
+                border-radius: 22px;
+            }
+
+            .age-grid{
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .age-chip{
+                min-height: auto;
+                padding: 12px 14px;
+                border-radius: 18px;
+            }
+
+            .age-icon{
+                width: 44px;
+                height: 44px;
+                border-radius: 14px;
+                font-size: 1.1rem;
+            }
+
+            .age-chip span{
+                font-size: .9rem;
             }
 
             .topic-card{
                 border-radius: 80px 80px 24px 24px;
+                min-height: 220px;
+            }
+
+            .topic-card img{
+                min-height: 220px;
             }
 
             .products-box{
@@ -787,7 +720,6 @@
     @include('theme.partials.header')
 
     <main>
-        <!-- Hero -->
         <section class="hero-section">
             <div class="container">
                 <div class="hero-box">
@@ -796,7 +728,7 @@
                     <div class="row align-items-center g-0">
                         <div class="col-lg-7">
                             <div class="hero-content">
-                                <span class="badge rounded-pill text-bg-light px-3 py-2 mb-3">
+                                <span class="hero-badge">
                                     <i class="bi bi-stars ms-2"></i>
                                     همراه خانواده‌ها در رشد بهتر کودک
                                 </span>
@@ -823,38 +755,38 @@
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="age-panel">
-                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-4">
-                            <div>
-                                <h5 class="mb-1 fw-bold">دسته‌بندی سنی</h5>
-                                <p class="mb-0 text-secondary">سن کودک را انتخاب کنید تا محتواها هدفمندتر نمایش داده شوند.</p>
-                            </div>
-                            <span class="text-secondary small">
-                                <i class="bi bi-grid-3x3-gap-fill ms-1"></i>
-                                8 گروه سنی
-                            </span>
+                <div class="age-section-box">
+                    <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-4">
+                        <div>
+                            <h5 class="mb-1 fw-bold">دسته‌بندی سنی</h5>
+                            <p class="mb-0 text-secondary">سن کودک را انتخاب کنید تا محتواها هدفمندتر نمایش داده شوند.</p>
                         </div>
 
-                        <div class="age-grid">
-                            @foreach($ageGroups as $age)
-                                <div class="age-chip {{ $loop->first ? 'active' : '' }}">
-                                    <div class="age-icon">
-                                        <i class="bi bi-balloon-heart"></i>
-                                    </div>
-                                    <span>{{ $age }}</span>
+                        <span class="text-secondary small">
+                            <i class="bi bi-grid-3x3-gap-fill ms-1"></i>
+                            8 گروه سنی
+                        </span>
+                    </div>
+
+                    <div class="age-grid">
+                        @forelse($ageGroups as $age)
+                            <div class="age-chip {{ $loop->first ? 'active' : '' }}">
+                                <div class="age-icon">
+                                    <i class="bi bi-balloon-heart"></i>
                                 </div>
-                            @empty
-                        <p class="text-muted text-center">پزشکی ثبت نشده است.</p>
-                    @endforelse
-                        </div>
+                                <span>{{ $age }}</span>
+                            </div>
+                        @empty
+                            <p class="text-muted text-center mb-0">گروه سنی ثبت نشده است.</p>
+                        @endforelse
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Topics -->
-        <section class="section-space pt-5">
+        <section class="section-space pt-0">
             <div class="container">
                 <div class="row g-4">
                     @foreach($topics as $topic)
@@ -874,7 +806,6 @@
             </div>
         </section>
 
-        <!-- Doctors -->
         <section class="section-space soft-section">
             <div class="container">
                 <div class="row align-items-end justify-content-between g-4 mb-4">
@@ -948,7 +879,6 @@
             </div>
         </section>
 
-        <!-- Blogs -->
         <section class="section-space" id="blogs">
             <div class="container">
                 <div class="section-title text-center mb-5">
@@ -973,7 +903,7 @@
                 </ul>
 
                 <div class="tab-content">
-                    @foreach($landingArticleCategories as $category)
+                    @forelse($landingArticleCategories as $category)
                         @php
                             $items = $landingArticles->filter(function ($article) use ($category) {
                                 if (!$article->category) {
@@ -992,7 +922,9 @@
                                             <h5 class="fw-bold mb-3">{{ $blog->title }}</h5>
                                             <div class="d-flex align-items-end justify-content-between gap-3">
                                                 <p class="text-secondary mb-0 lh-lg">{{ $blog->excerpt ?: \Illuminate\Support\Str::limit(strip_tags($blog->content), 90) }}</p>
-                                                <a href="{{ route('theme.single-blog', $blog->slug) }}" class="icon-btn flex-shrink-0"><i class="bi bi-arrow-left"></i></a>
+                                                <a href="{{ route('theme.single-blog', $blog->slug) }}" class="icon-btn flex-shrink-0">
+                                                    <i class="bi bi-arrow-left"></i>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -1002,13 +934,12 @@
                             </div>
                         </div>
                     @empty
-                        <p class="text-muted text-center">پزشکی ثبت نشده است.</p>
+                        <p class="text-muted text-center">دسته‌بندی مقاله‌ای ثبت نشده است.</p>
                     @endforelse
                 </div>
             </div>
         </section>
 
-        <!-- Places -->
         <section class="section-space soft-section">
             <div class="container">
                 <div class="row align-items-end justify-content-between g-4 mb-4">
@@ -1079,7 +1010,6 @@
             </div>
         </section>
 
-        <!-- FAQ -->
         <section class="section-space">
             <div class="container">
                 <div class="section-title text-center mb-5">
@@ -1127,7 +1057,6 @@
             </div>
         </section>
 
-        <!-- Products -->
         <section class="section-space pt-0" id="products">
             <div class="container">
                 <div class="products-box">
@@ -1143,21 +1072,30 @@
 
                         <div class="col-lg-9">
                             <div class="d-flex justify-content-end gap-2 mb-3">
-                                <button class="icon-btn" type="button" onclick="scrollTrack('productsTrack', -340)"><i class="bi bi-arrow-right"></i></button>
-                                <button class="icon-btn" type="button" onclick="scrollTrack('productsTrack', 340)"><i class="bi bi-arrow-left"></i></button>
+                                <button class="icon-btn" type="button" onclick="scrollTrack('productsTrack', -340)">
+                                    <i class="bi bi-arrow-right"></i>
+                                </button>
+                                <button class="icon-btn" type="button" onclick="scrollTrack('productsTrack', 340)">
+                                    <i class="bi bi-arrow-left"></i>
+                                </button>
                             </div>
 
                             <div class="scroll-track" id="productsTrack">
                                 @forelse($landingProducts as $product)
-                                    <div class="product-card p-4">
+                                    <div class="product-card p-4 d-flex flex-column">
                                         <img src="{{ $product->image_path ? asset('storage/'.$product->image_path) : asset('theme/assets/images/16 1.png') }}" class="product-thumb mb-3" alt="{{ $product->name }}">
                                         <div class="d-flex align-items-center justify-content-between mb-2 gap-2">
                                             <h5 class="mb-0 fw-bold">{{ $product->name }}</h5>
-                                            <span class="rating-badge"><i class="bi bi-star-fill ms-1"></i>{{ number_format((float) ($product->rating ?? 4.5), 1) }}</span>
+                                            <span class="rating-badge">
+                                                <i class="bi bi-star-fill ms-1"></i>
+                                                {{ number_format((float) ($product->rating ?? 4.5), 1) }}
+                                            </span>
                                         </div>
                                         <p class="text-secondary lh-lg mb-4">{{ $product->short_description ?: \Illuminate\Support\Str::limit(strip_tags($product->description), 80) }}</p>
                                         <div class="d-flex align-items-center justify-content-between gap-3 mt-auto">
-                                            <a class="add-cart" href="{{ route('theme.single-product', $product->slug) }}"><i class="bi bi-bag-plus"></i></a>
+                                            <a class="add-cart" href="{{ route('theme.single-product', $product->slug) }}">
+                                                <i class="bi bi-bag-plus"></i>
+                                            </a>
                                             <div class="text-end">
                                                 @if($product->discount_price)
                                                     <div class="old-price">{{ number_format((float) $product->price) }} تومان</div>
@@ -1194,7 +1132,6 @@
             }
         }
 
-        // فعال شدن انتخاب دسته‌بندی سنی
         document.querySelectorAll('.age-chip').forEach(chip => {
             chip.addEventListener('click', function () {
                 document.querySelectorAll('.age-chip').forEach(item => item.classList.remove('active'));
@@ -1202,7 +1139,6 @@
             });
         });
 
-        // جستجوی پزشکان
         const doctorSearch = document.getElementById('doctorSearch');
         if (doctorSearch) {
             doctorSearch.addEventListener('input', function () {
@@ -1217,7 +1153,6 @@
             });
         }
 
-        // جستجوی مکان‌ها
         const placeSearch = document.getElementById('placeSearch');
         if (placeSearch) {
             placeSearch.addEventListener('input', function () {
