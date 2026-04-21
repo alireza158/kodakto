@@ -4,49 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <base href="{{ asset('theme') }}/">
-    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="assets/css/all.css">
     <link rel="stylesheet" href="assets/css/header.css">
     <link rel="stylesheet" href="assets/css/vebinar.css">
-    <title>Document</title>
+    <title>وبینارها</title>
 </head>
 <body>
-    @include('theme.partials.header')
+@include('theme.partials.header')
 
-    <main>
-        <img class="body-image" src="assets/images/Rectangle 6.png" alt="">
-        <h1 class="title">خانه | <span style="color: #858586;">مقالات</span></h1>
-
-        <div class="vebinar-title-container">
-            <h1>وبینار ها</h1>
-            <div class="search-vebinar">
-                <div class="vebinar-filter">
-                    <img src="assets/images/menu-line-horizontal 01.png" alt="">
-                    <span>فیلترها</span>
-                    <img src="assets/images/Vector 175.png" alt="">
-                </div>
-                <div class="input-vebinar">
-                    <img src="assets/images/search 01.svg" alt="">
-                    <input type="search" id="search-vebinar-input" placeholder="جستجوی وبینار مورد نطر">
-                </div>
-            </div>
-
-            <div class="container">
-                <div class="owl-vebinar owl-carousel owl-theme">
-                    <div class="item vebinar-card">
-                        <div class="card-information"></div>
-                    </div>
-                </div>
-            </div>
+<main class="webinar-main">
+    <section class="webinar-hero">
+        <div class="webinar-shell">
+            <h1>وبینارها</h1>
+            <p>لیست کامل وبینارهای آموزشی به‌صورت داینامیک از پنل مدیریت</p>
         </div>
+    </section>
 
-        <section class="vebinar"></section>
-    </main>
+    <section class="webinar-list-section">
+        <div class="webinar-shell">
+            <div class="webinar-grid">
+                @forelse($webinars as $webinar)
+                    <article class="webinar-card">
+                        <img src="{{ $webinar->image_path ? asset('storage/'.$webinar->image_path) : asset('theme/assets/images/Frame 1116606961.png') }}" alt="{{ $webinar->title }}">
+                        <div class="webinar-card__body">
+                            <h2>{{ $webinar->title }}</h2>
+                            <div class="webinar-meta">
+                                <span>شروع: {{ $webinar->starts_at_jalali ?? 'نامشخص' }}</span>
+                                <span>مدت: {{ $webinar->duration_minutes }} دقیقه</span>
+                            </div>
+                            <p>{{ \Illuminate\Support\Str::limit(strip_tags($webinar->description), 130) }}</p>
+                            <a href="{{ route('theme.single-vebinar', $webinar->slug) }}" class="details-btn">جزئیات وبینار</a>
+                        </div>
+                    </article>
+                @empty
+                    <p class="empty-text">وبیناری برای نمایش وجود ندارد.</p>
+                @endforelse
+            </div>
 
+            <div class="pagination-wrap">{{ $webinars->links() }}</div>
+        </div>
+    </section>
+</main>
 
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/owl.carousel.min.js"></script>
-    <script src="assets/js/main.js"></script>
+@include('theme.partials.footer')
 </body>
 </html>

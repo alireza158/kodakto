@@ -135,8 +135,8 @@
             </li>
             <li>
                 <a href="{{ route('theme.vebinar') }}" class="nav-link">
-                    <div class="item-logo"><img src="assets/images/reward.png" alt="پیشنهاد ویژه" class="img-fluid"></div>
-                    <h3 class="{{ request()->routeIs('theme.vebinar') ? 'active' : '' }}">پیشنهاد ویژه</h3>
+                    <div class="item-logo"><img src="assets/images/reward.png" alt="وبینارها" class="img-fluid"></div>
+                    <h3 class="{{ request()->routeIs('theme.vebinar') || request()->routeIs('theme.single-vebinar') ? 'active' : '' }}">وبینارها</h3>
                 </a>
             </li>
             <li>

@@ -7,6 +7,7 @@ use App\Http\Controllers\DoctorAdminController;
 use App\Http\Controllers\ProductAdminController;
 use App\Http\Controllers\ProductCategoryAdminController;
 use App\Http\Controllers\ThemePageController;
+use App\Http\Controllers\WebinarAdminController;
 use Illuminate\Support\Facades\Route;
 
 Route::controller(ThemePageController::class)->group(function (): void {
@@ -21,6 +22,7 @@ Route::controller(ThemePageController::class)->group(function (): void {
         Route::get('/blog', 'blog')->name('blog');
         Route::get('/single-blog/{slug}', 'singleBlog')->name('single-blog');
         Route::get('/vebinar', 'vebinar')->name('vebinar');
+        Route::get('/single-vebinar/{slug}', 'singleVebinar')->name('single-vebinar');
         Route::get('/about-us', 'aboutUs')->name('about-us');
         Route::get('/contact-us', 'contactUs')->name('contact-us');
     });
@@ -34,4 +36,5 @@ Route::prefix('admin')->name('admin.')->group(function (): void {
     Route::resource('articles', ArticleAdminController::class)->except(['show']);
     Route::resource('products', ProductAdminController::class)->except(['show']);
     Route::resource('doctors', DoctorAdminController::class)->except(['show']);
+    Route::resource('webinars', WebinarAdminController::class)->except(['show']);
 });

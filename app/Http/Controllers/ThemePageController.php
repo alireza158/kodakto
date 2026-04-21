@@ -7,6 +7,7 @@ use App\Models\ArticleCategory;
 use App\Models\Doctor;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\Webinar;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -113,7 +114,27 @@ class ThemePageController extends Controller
 
     public function vebinar(): View
     {
-        return view('theme.vebinar');
+        $webinars = Webinar::query()
+            ->where('is_active', true)
+            ->orderByDesc('starts_at')
+            ->latest('id')
+            ->paginate(9);
+
+        return view('theme.vebinar', compact('webinars'));
+    }
+
+    public function singleVebinar(string $slug): View
+    {
+        $webinar = Webinar::query()->where('slug', $slug)->where('is_active', true)->firstOrFail();
+        $latestWebinars = Webinar::query()
+            ->where('is_active', true)
+            ->where('id', '!=', $webinar->id)
+            ->orderByDesc('starts_at')
+            ->latest('id')
+            ->limit(4)
+            ->get();
+
+        return view('theme.single-vebinar', compact('webinar', 'latestWebinars'));
     }
 
     public function aboutUs(): View

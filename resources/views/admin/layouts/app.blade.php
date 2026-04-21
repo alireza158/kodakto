@@ -288,12 +288,37 @@
                     </li>
                 </ul>
             </div>
+
+            <div class="menu-section">
+                <div class="menu-section-title">مدیریت وبینارها</div>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('admin.webinars.*') && !request()->routeIs('admin.webinars.create') ? 'active' : '' }}"
+                           href="{{ route('admin.webinars.index') }}">
+                            <span class="nav-link-text">
+                                <span class="nav-icon">🎥</span>
+                                وبینارها
+                            </span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('admin.webinars.create') ? 'active' : '' }}"
+                           href="{{ route('admin.webinars.create') }}">
+                            <span class="nav-link-text">
+                                <span class="nav-icon">➕</span>
+                                افزودن وبینار
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </aside>
 
         <main class="col-12 col-lg-9 col-xl-10 content-wrap">
             <div class="topbar">
                 <h2 class="topbar-title">{{ $title ?? 'پنل مدیریت' }}</h2>
-                <p class="topbar-desc">از این بخش می‌توانید محتوا، محصولات و اطلاعات پزشکان را مدیریت کنید.</p>
+                <p class="topbar-desc">از این بخش می‌توانید محتوا، محصولات، اطلاعات پزشکان و وبینارها را مدیریت کنید.</p>
             </div>
 
             @if (session('status'))
