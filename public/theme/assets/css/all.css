@@ -4,8 +4,72 @@
     box-sizing: border-box;
 }
 
+img,
+svg,
+video,
+canvas,
+iframe{
+    max-width: 100%;
+    height: auto;
+}
+
 body{
     margin: auto;
+    width: 100%;
     max-width: 1519px !important;
     background-color: #FBFCFF;
+    overflow-x: hidden;
+}
+
+/* Global mobile safeguards for legacy fixed-width pages */
+@media screen and (max-width: 992px){
+    body{
+        max-width: 100% !important;
+    }
+
+    .header,
+    .foot-container,
+    .aboutus-container,
+    .contactus-container,
+    .search-docter-container,
+    .single-docter-container,
+    .single-blog-container,
+    .single-webinar-container,
+    .product-container,
+    .big-banner-container,
+    .docters-container,
+    .child-container,
+    .filter-container,
+    .articles-grid,
+    .blog-grid,
+    .webinar-grid{
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+
+    .nav,
+    .nav-items,
+    .search,
+    .product-filter,
+    .contactus-form,
+    .single-blog-main,
+    .single-docter-main,
+    .single-webinar-main,
+    .doctor-list,
+    .doctor-card,
+    .product-card{
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+    }
+
+    .row,
+    [class*="row"]{
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
 }

@@ -15,6 +15,7 @@
     justify-content: space-between;
     margin: auto;
     width: 1085px;
+    max-width: 100%;
     flex-wrap: wrap;
 }
 
@@ -138,9 +139,11 @@
     footer {
         padding-top: 40px;
     }
-    
+
     .foot-container {
         flex-direction: column;
+        width: 100%;
+        padding: 0 12px;
     }
 
     .footer-bio, .quik-access, .contactus, .licence {
